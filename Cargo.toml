@@ -1,0 +1,8 @@
+[workspace]
+members = [
+"src/proxy",
+"src/auditor",
+"src/verification",
+"src/shared/utils",
+]
+resolver = "2"
