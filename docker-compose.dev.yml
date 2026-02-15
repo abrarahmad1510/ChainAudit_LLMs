@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  envoy:
+    image: envoyproxy/envoy:v1.28-latest
+    ports:
+      - "10000:10000"
+    volumes:
+      - ./build/docker/proxy/envoy.yaml:/etc/envoy/envoy.yaml
+      - ./build/docker/proxy/verillm_proxy.wasm:/etc/envoy/verillm_proxy.wasm
+    depends_on:
+      - llm
+
+  llm:
+    image: python:3.11-slim
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./examples/basic/llm_mock.py:/llm_mock.py
+    working_dir: /
+    command: python llm_mock.py

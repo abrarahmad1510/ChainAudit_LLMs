@@ -1,0 +1,14 @@
+[server]
+addr = "0.0.0.0:50051"
+[database]
+url = "postgres://verillm:verillm@localhost:5432/verillm"
+[kafka]
+brokers = "localhost:9092"
+topic = "receipts"
+[trillian]
+log_server_addr = "http://localhost:8090"
+log_id = 1
+[sigstore]
+fulcio_url = "https://fulcio.sigstore.dev"
+rekor_url = "https://rekor.sigstore.dev"
+# For development, we can use a mock signer.

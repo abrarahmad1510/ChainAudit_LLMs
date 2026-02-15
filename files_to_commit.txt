@@ -1,0 +1,1876 @@
+├── ./Cargo.toml
+├── ./LICENSE
+├── ./Makefile
+├── ./config
+│   ├── ./config/dev
+│   │   └── ./config/dev/auditor.toml
+│   ├── ./config/prod
+│   │   └── ./config/prod/auditor.toml
+│   └── ./config/staging
+├── ./data
+│   ├── ./data/kafka
+│   └── ./data/postgres
+├── ./docker-compose.dev.yml
+├── ./docker-compose.integration.yml
+├── ./docs
+│   ├── ./docs/api
+│   ├── ./docs/architecture
+│   ├── ./docs/deployment
+│   ├── ./docs/images
+│   └── ./docs/research
+├── ./examples
+│   ├── ./examples/advanced
+│   ├── ./examples/basic
+│   │   ├── ./examples/basic/Dockerfile.mock
+│   │   └── ./examples/basic/llm_mock.py
+│   └── ./examples/tutorials
+├── ./file_structure.txt
+├── ./files_to_commit.txt
+├── ./infrastructure
+│   ├── ./infrastructure/ansible
+│   ├── ./infrastructure/helm
+│   │   └── ./infrastructure/helm/verillm
+│   │       ├── ./infrastructure/helm/verillm/Chart.yaml
+│   │       ├── ./infrastructure/helm/verillm/charts
+│   │       ├── ./infrastructure/helm/verillm/templates
+│   │       └── ./infrastructure/helm/verillm/values.yaml
+│   └── ./infrastructure/terraform
+├── ./scripts
+│   ├── ./scripts/deploy
+│   ├── ./scripts/monitoring
+│   └── ./scripts/setup
+│       ├── ./scripts/setup/google_protos.sh
+│       └── ./scripts/setup/trillian_protos.sh
+├── ./src
+│   ├── ./src/auditor
+│   │   ├── ./src/auditor/Cargo.toml
+│   │   ├── ./src/auditor/build.rs
+│   │   ├── ./src/auditor/migrations
+│   │   │   └── ./src/auditor/migrations/20250213000000_init.sql
+│   │   ├── ./src/auditor/proto
+│   │   │   └── ./src/auditor/proto/auditor.proto
+│   │   └── ./src/auditor/src
+│   │       ├── ./src/auditor/src/config.rs
+│   │       ├── ./src/auditor/src/kafka.rs
+│   │       ├── ./src/auditor/src/lib.rs
+│   │       ├── ./src/auditor/src/main.rs
+│   │       ├── ./src/auditor/src/protos.rs
+│   │       ├── ./src/auditor/src/server.rs
+│   │       ├── ./src/auditor/src/shared
+│   │       │   └── ./src/auditor/src/shared/proto
+│   │       │       ├── ./src/auditor/src/shared/proto/auditor.proto
+│   │       │       ├── ./src/auditor/src/shared/proto/google
+│   │       │       │   └── ./src/auditor/src/shared/proto/google/api
+│   │       │       │       ├── ./src/auditor/src/shared/proto/google/api/annotations.proto
+│   │       │       │       └── ./src/auditor/src/shared/proto/google/api/http.proto
+│   │       │       └── ./src/auditor/src/shared/proto/trillian
+│   │       │           ├── ./src/auditor/src/shared/proto/trillian/crypto
+│   │       │           │   ├── ./src/auditor/src/shared/proto/trillian/crypto/keys
+│   │       │           │   │   ├── ./src/auditor/src/shared/proto/trillian/crypto/keys/der
+│   │       │           │   │   │   ├── ./src/auditor/src/shared/proto/trillian/crypto/keys/der/der.go
+│   │       │           │   │   │   └── ./src/auditor/src/shared/proto/trillian/crypto/keys/der/der_test.go
+│   │       │           │   │   ├── ./src/auditor/src/shared/proto/trillian/crypto/keys/handlers.go
+│   │       │           │   │   ├── ./src/auditor/src/shared/proto/trillian/crypto/keys/handlers_test.go
+│   │       │           │   │   ├── ./src/auditor/src/shared/proto/trillian/crypto/keys/pem
+│   │       │           │   │   │   ├── ./src/auditor/src/shared/proto/trillian/crypto/keys/pem/pem.go
+│   │       │           │   │   │   └── ./src/auditor/src/shared/proto/trillian/crypto/keys/pem/pem_test.go
+│   │       │           │   │   ├── ./src/auditor/src/shared/proto/trillian/crypto/keys/pkcs11
+│   │       │           │   │   │   ├── ./src/auditor/src/shared/proto/trillian/crypto/keys/pkcs11/no_pkcs11.go
+│   │       │           │   │   │   ├── ./src/auditor/src/shared/proto/trillian/crypto/keys/pkcs11/pkcs11.go
+│   │       │           │   │   │   └── ./src/auditor/src/shared/proto/trillian/crypto/keys/pkcs11/pkcs11_test.go
+│   │       │           │   │   └── ./src/auditor/src/shared/proto/trillian/crypto/keys/testonly
+│   │       │           │   │       └── ./src/auditor/src/shared/proto/trillian/crypto/keys/testonly/keys.go
+│   │       │           │   ├── ./src/auditor/src/shared/proto/trillian/crypto/keyspb
+│   │       │           │   │   ├── ./src/auditor/src/shared/proto/trillian/crypto/keyspb/keyspb.pb.go
+│   │       │           │   │   └── ./src/auditor/src/shared/proto/trillian/crypto/keyspb/keyspb.proto
+│   │       │           │   └── ./src/auditor/src/shared/proto/trillian/crypto/sigpb
+│   │       │           └── ./src/auditor/src/shared/proto/trillian/trillian.proto
+│   │       ├── ./src/auditor/src/signer.rs
+│   │       ├── ./src/auditor/src/storage.rs
+│   │       └── ./src/auditor/src/trillian.rs
+│   ├── ./src/dashboard
+│   │   ├── ./src/dashboard/backend
+│   │   │   └── ./src/dashboard/backend/Cargo.toml
+│   │   └── ./src/dashboard/frontend
+│   │       ├── ./src/dashboard/frontend/README.md
+│   │       ├── ./src/dashboard/frontend/eslint.config.js
+│   │       ├── ./src/dashboard/frontend/index.html
+│   │       ├── ./src/dashboard/frontend/package.json
+│   │       ├── ./src/dashboard/frontend/postcss.config.js
+│   │       ├── ./src/dashboard/frontend/src
+│   │       │   ├── ./src/dashboard/frontend/src/App.tsx
+│   │       │   ├── ./src/dashboard/frontend/src/components
+│   │       │   │   ├── ./src/dashboard/frontend/src/components/AuditExportWizard.tsx
+│   │       │   │   ├── ./src/dashboard/frontend/src/components/Layout.tsx
+│   │       │   │   ├── ./src/dashboard/frontend/src/components/ModelLineageViewer.tsx
+│   │       │   │   ├── ./src/dashboard/frontend/src/components/PrivacyBudgetDashboard.tsx
+│   │       │   │   ├── ./src/dashboard/frontend/src/components/ReceiptExplorer.tsx
+│   │       │   │   └── ./src/dashboard/frontend/src/components/ThemeToggle.tsx
+│   │       │   ├── ./src/dashboard/frontend/src/hooks
+│   │       │   │   ├── ./src/dashboard/frontend/src/hooks/useLocalStorage.ts
+│   │       │   │   └── ./src/dashboard/frontend/src/hooks/useThemeMode.ts
+│   │       │   ├── ./src/dashboard/frontend/src/index.css
+│   │       │   ├── ./src/dashboard/frontend/src/main.tsx
+│   │       │   ├── ./src/dashboard/frontend/src/theme.ts
+│   │       │   ├── ./src/dashboard/frontend/src/types
+│   │       │   │   └── ./src/dashboard/frontend/src/types/graphql.ts
+│   │       │   └── ./src/dashboard/frontend/src/vite-env.d.ts
+│   │       ├── ./src/dashboard/frontend/tailwind.config.js
+│   │       ├── ./src/dashboard/frontend/tsconfig.app.json
+│   │       ├── ./src/dashboard/frontend/tsconfig.json
+│   │       ├── ./src/dashboard/frontend/tsconfig.node.json
+│   │       └── ./src/dashboard/frontend/vite.config.ts
+│   ├── ./src/proxy
+│   │   ├── ./src/proxy/Cargo.toml
+│   │   └── ./src/proxy/src
+│   │       ├── ./src/proxy/src/auditor
+│   │       │   ├── ./src/proxy/src/auditor/Cargo.toml
+│   │       │   └── ./src/proxy/src/auditor/src
+│   │       │       └── ./src/proxy/src/auditor/src/lib.rs
+│   │       ├── ./src/proxy/src/canonical.rs
+│   │       ├── ./src/proxy/src/lib.rs
+│   │       ├── ./src/proxy/src/shared
+│   │       │   └── ./src/proxy/src/shared/utils
+│   │       │       ├── ./src/proxy/src/shared/utils/Cargo.toml
+│   │       │       └── ./src/proxy/src/shared/utils/src
+│   │       │           └── ./src/proxy/src/shared/utils/src/lib.rs
+│   │       └── ./src/proxy/src/verification
+│   │           ├── ./src/proxy/src/verification/Cargo.toml
+│   │           └── ./src/proxy/src/verification/src
+│   │               └── ./src/proxy/src/verification/src/lib.rs
+│   ├── ./src/shared
+│   │   ├── ./src/shared/proto
+│   │   │   ├── ./src/shared/proto/auditor.proto
+│   │   │   ├── ./src/shared/proto/google
+│   │   │   │   ├── ./src/shared/proto/google/api
+│   │   │   │   │   ├── ./src/shared/proto/google/api/annotations.proto
+│   │   │   │   │   └── ./src/shared/proto/google/api/http.proto
+│   │   │   │   └── ./src/shared/proto/google/rpc
+│   │   │   │       └── ./src/shared/proto/google/rpc/status.proto
+│   │   │   └── ./src/shared/proto/trillian
+│   │   │       ├── ./src/shared/proto/trillian/crypto
+│   │   │       │   ├── ./src/shared/proto/trillian/crypto/keys
+│   │   │       │   │   ├── ./src/shared/proto/trillian/crypto/keys/der
+│   │   │       │   │   │   ├── ./src/shared/proto/trillian/crypto/keys/der/der.go
+│   │   │       │   │   │   └── ./src/shared/proto/trillian/crypto/keys/der/der_test.go
+│   │   │       │   │   ├── ./src/shared/proto/trillian/crypto/keys/handlers.go
+│   │   │       │   │   ├── ./src/shared/proto/trillian/crypto/keys/handlers_test.go
+│   │   │       │   │   ├── ./src/shared/proto/trillian/crypto/keys/pem
+│   │   │       │   │   │   ├── ./src/shared/proto/trillian/crypto/keys/pem/pem.go
+│   │   │       │   │   │   └── ./src/shared/proto/trillian/crypto/keys/pem/pem_test.go
+│   │   │       │   │   ├── ./src/shared/proto/trillian/crypto/keys/pkcs11
+│   │   │       │   │   │   ├── ./src/shared/proto/trillian/crypto/keys/pkcs11/no_pkcs11.go
+│   │   │       │   │   │   ├── ./src/shared/proto/trillian/crypto/keys/pkcs11/pkcs11.go
+│   │   │       │   │   │   └── ./src/shared/proto/trillian/crypto/keys/pkcs11/pkcs11_test.go
+│   │   │       │   │   └── ./src/shared/proto/trillian/crypto/keys/testonly
+│   │   │       │   │       └── ./src/shared/proto/trillian/crypto/keys/testonly/keys.go
+│   │   │       │   └── ./src/shared/proto/trillian/crypto/keyspb
+│   │   │       │       ├── ./src/shared/proto/trillian/crypto/keyspb/keyspb.pb.go
+│   │   │       │       └── ./src/shared/proto/trillian/crypto/keyspb/keyspb.proto
+│   │   │       ├── ./src/shared/proto/trillian/trillian.proto
+│   │   │       ├── ./src/shared/proto/trillian/trillian_admin_api.proto
+│   │   │       └── ./src/shared/proto/trillian/trillian_log_api.proto
+│   │   └── ./src/shared/utils
+│   │       ├── ./src/shared/utils/Cargo.toml
+│   │       └── ./src/shared/utils/src
+│   │           └── ./src/shared/utils/src/main.rs
+│   └── ./src/verification
+│       ├── ./src/verification/Cargo.toml
+│       └── ./src/verification/src
+│           ├── ./src/verification/src/main.rs
+│           └── ./src/verification/src/verify.rs
+├── ./tested.py
+├── ./tests
+│   ├── ./tests/e2e
+│   ├── ./tests/integration
+│   ├── ./tests/performance
+│   └── ./tests/unit
+├── ./tools
+│   ├── ./tools/benchmarks
+│   ├── ./tools/cli
+│   │   ├── ./tools/cli/Cargo.toml
+│   │   └── ./tools/cli/src
+│   │       └── ./tools/cli/src/main.rs
+│   └── ./tools/profiling
+├── ./trillian
+│   ├── ./trillian/AUTHORS
+│   ├── ./trillian/CHANGELOG.md
+│   ├── ./trillian/CODEOWNERS
+│   ├── ./trillian/CONTRIBUTING.md
+│   ├── ./trillian/CONTRIBUTORS
+│   ├── ./trillian/LICENSE
+│   ├── ./trillian/PULL_REQUEST_TEMPLATE.md
+│   ├── ./trillian/README.md
+│   ├── ./trillian/client
+│   │   ├── ./trillian/client/admin.go
+│   │   ├── ./trillian/client/backoff
+│   │   │   ├── ./trillian/client/backoff/backoff.go
+│   │   │   └── ./trillian/client/backoff/backoff_test.go
+│   │   ├── ./trillian/client/log_client.go
+│   │   ├── ./trillian/client/log_client_test.go
+│   │   ├── ./trillian/client/log_verifier.go
+│   │   ├── ./trillian/client/log_verifier_test.go
+│   │   ├── ./trillian/client/mutating_client_test.go
+│   │   └── ./trillian/client/rpcflags
+│   │       ├── ./trillian/client/rpcflags/rpcflags.go
+│   │       └── ./trillian/client/rpcflags/rpcflags_test.go
+│   ├── ./trillian/cloudbuild.yaml
+│   ├── ./trillian/cloudbuild_master.yaml
+│   ├── ./trillian/cloudbuild_pr.yaml
+│   ├── ./trillian/cloudbuild_tag.yaml
+│   ├── ./trillian/cmd
+│   │   ├── ./trillian/cmd/createtree
+│   │   │   ├── ./trillian/cmd/createtree/main.go
+│   │   │   └── ./trillian/cmd/createtree/main_test.go
+│   │   ├── ./trillian/cmd/deletetree
+│   │   │   └── ./trillian/cmd/deletetree/main.go
+│   │   ├── ./trillian/cmd/flags.go
+│   │   ├── ./trillian/cmd/flags_test.go
+│   │   ├── ./trillian/cmd/internal
+│   │   │   ├── ./trillian/cmd/internal/provider
+│   │   │   │   ├── ./trillian/cmd/internal/provider/cloudspanner.go
+│   │   │   │   ├── ./trillian/cmd/internal/provider/crdb.go
+│   │   │   │   ├── ./trillian/cmd/internal/provider/default_systems.go
+│   │   │   │   ├── ./trillian/cmd/internal/provider/etcd.go
+│   │   │   │   ├── ./trillian/cmd/internal/provider/k8s.go
+│   │   │   │   ├── ./trillian/cmd/internal/provider/mysql.go
+│   │   │   │   └── ./trillian/cmd/internal/provider/postgresql.go
+│   │   │   └── ./trillian/cmd/internal/serverutil
+│   │   │       └── ./trillian/cmd/internal/serverutil/main.go
+│   │   ├── ./trillian/cmd/trillian_log_server
+│   │   │   └── ./trillian/cmd/trillian_log_server/main.go
+│   │   ├── ./trillian/cmd/trillian_log_signer
+│   │   │   └── ./trillian/cmd/trillian_log_signer/main.go
+│   │   └── ./trillian/cmd/updatetree
+│   │       ├── ./trillian/cmd/updatetree/main.go
+│   │       └── ./trillian/cmd/updatetree/main_test.go
+│   ├── ./trillian/codecov.yml
+│   ├── ./trillian/createtree
+│   ├── ./trillian/crypto
+│   │   ├── ./trillian/crypto/keys
+│   │   │   ├── ./trillian/crypto/keys/der
+│   │   │   │   ├── ./trillian/crypto/keys/der/der.go
+│   │   │   │   └── ./trillian/crypto/keys/der/der_test.go
+│   │   │   ├── ./trillian/crypto/keys/handlers.go
+│   │   │   ├── ./trillian/crypto/keys/handlers_test.go
+│   │   │   ├── ./trillian/crypto/keys/pem
+│   │   │   │   ├── ./trillian/crypto/keys/pem/pem.go
+│   │   │   │   └── ./trillian/crypto/keys/pem/pem_test.go
+│   │   │   ├── ./trillian/crypto/keys/pkcs11
+│   │   │   │   ├── ./trillian/crypto/keys/pkcs11/no_pkcs11.go
+│   │   │   │   ├── ./trillian/crypto/keys/pkcs11/pkcs11.go
+│   │   │   │   └── ./trillian/crypto/keys/pkcs11/pkcs11_test.go
+│   │   │   └── ./trillian/crypto/keys/testonly
+│   │   │       └── ./trillian/crypto/keys/testonly/keys.go
+│   │   └── ./trillian/crypto/keyspb
+│   │       ├── ./trillian/crypto/keyspb/keyspb.pb.go
+│   │       └── ./trillian/crypto/keyspb/keyspb.proto
+│   ├── ./trillian/deployment
+│   │   ├── ./trillian/deployment/README.md
+│   │   ├── ./trillian/deployment/deploy-config.yaml
+│   │   ├── ./trillian/deployment/etcd-cluster.yaml
+│   │   ├── ./trillian/deployment/etcd-crd.yaml
+│   │   ├── ./trillian/deployment/etcd-deployment.yaml
+│   │   ├── ./trillian/deployment/etcd-role-binding.yaml
+│   │   ├── ./trillian/deployment/etcd-role.yaml
+│   │   ├── ./trillian/deployment/kustomization.yaml
+│   │   ├── ./trillian/deployment/log-deployment.yaml
+│   │   ├── ./trillian/deployment/log-service.yaml
+│   │   ├── ./trillian/deployment/log-signer-deployment.yaml
+│   │   ├── ./trillian/deployment/log-signer-service.yaml
+│   │   ├── ./trillian/deployment/main.tf
+│   │   ├── ./trillian/deployment/service-account.yaml
+│   │   └── ./trillian/deployment/tf-patch.template.yaml
+│   ├── ./trillian/docs
+│   │   ├── ./trillian/docs/CloudSpanner.md
+│   │   ├── ./trillian/docs/Feature_Implementation_Matrix.md
+│   │   ├── ./trillian/docs/MapHashers.md
+│   │   ├── ./trillian/docs/Personalities.md
+│   │   ├── ./trillian/docs/TransparentLogging.md
+│   │   ├── ./trillian/docs/VerifiableDataStructures-Latest.md
+│   │   ├── ./trillian/docs/api.md
+│   │   ├── ./trillian/docs/claimantmodel
+│   │   │   ├── ./trillian/docs/claimantmodel/Book.md
+│   │   │   ├── ./trillian/docs/claimantmodel/CoreModel.md
+│   │   │   ├── ./trillian/docs/claimantmodel/Logs.md
+│   │   │   ├── ./trillian/docs/claimantmodel/Maps.md
+│   │   │   ├── ./trillian/docs/claimantmodel/README.md
+│   │   │   ├── ./trillian/docs/claimantmodel/cmrels.png
+│   │   │   └── ./trillian/docs/claimantmodel/experimental
+│   │   │       └── ./trillian/docs/claimantmodel/experimental/cmd
+│   │   │           └── ./trillian/docs/claimantmodel/experimental/cmd/render
+│   │   │               ├── ./trillian/docs/claimantmodel/experimental/cmd/render/README.md
+│   │   │               ├── ./trillian/docs/claimantmodel/experimental/cmd/render/internal
+│   │   │               │   ├── ./trillian/docs/claimantmodel/experimental/cmd/render/internal/model.go
+│   │   │               │   ├── ./trillian/docs/claimantmodel/experimental/cmd/render/internal/model_test.go
+│   │   │               │   ├── ./trillian/docs/claimantmodel/experimental/cmd/render/internal/models
+│   │   │               │   │   ├── ./trillian/docs/claimantmodel/experimental/cmd/render/internal/models/armorydrive
+│   │   │               │   │   │   ├── ./trillian/docs/claimantmodel/experimental/cmd/render/internal/models/armorydrive/full.md
+│   │   │               │   │   │   ├── ./trillian/docs/claimantmodel/experimental/cmd/render/internal/models/armorydrive/full.yaml
+│   │   │               │   │   │   ├── ./trillian/docs/claimantmodel/experimental/cmd/render/internal/models/armorydrive/logsequence.md
+│   │   │               │   │   │   ├── ./trillian/docs/claimantmodel/experimental/cmd/render/internal/models/armorydrive/model.md
+│   │   │               │   │   │   ├── ./trillian/docs/claimantmodel/experimental/cmd/render/internal/models/armorydrive/model.yaml
+│   │   │               │   │   │   └── ./trillian/docs/claimantmodel/experimental/cmd/render/internal/models/armorydrive/questions.md
+│   │   │               │   │   └── ./trillian/docs/claimantmodel/experimental/cmd/render/internal/models/ct
+│   │   │               │   │       ├── ./trillian/docs/claimantmodel/experimental/cmd/render/internal/models/ct/full.md
+│   │   │               │   │       ├── ./trillian/docs/claimantmodel/experimental/cmd/render/internal/models/ct/full.yaml
+│   │   │               │   │       ├── ./trillian/docs/claimantmodel/experimental/cmd/render/internal/models/ct/model.md
+│   │   │               │   │       ├── ./trillian/docs/claimantmodel/experimental/cmd/render/internal/models/ct/model.yaml
+│   │   │               │   │       └── ./trillian/docs/claimantmodel/experimental/cmd/render/internal/models/ct/questions.md
+│   │   │               │   ├── ./trillian/docs/claimantmodel/experimental/cmd/render/internal/tmpl_model.md
+│   │   │               │   ├── ./trillian/docs/claimantmodel/experimental/cmd/render/internal/tmpl_questions.md
+│   │   │               │   └── ./trillian/docs/claimantmodel/experimental/cmd/render/internal/tmpl_sequence.md
+│   │   │               └── ./trillian/docs/claimantmodel/experimental/cmd/render/main.go
+│   │   ├── ./trillian/docs/howto
+│   │   │   └── ./trillian/docs/howto/freeze_a_ct_log.md
+│   │   ├── ./trillian/docs/images
+│   │   │   └── ./trillian/docs/images/LogDesign.png
+│   │   ├── ./trillian/docs/merkletree
+│   │   │   ├── ./trillian/docs/merkletree/index.html
+│   │   │   ├── ./trillian/docs/merkletree/merkletree.js
+│   │   │   ├── ./trillian/docs/merkletree/merkletree_test.js
+│   │   │   ├── ./trillian/docs/merkletree/test.html
+│   │   │   └── ./trillian/docs/merkletree/treetex
+│   │   │       ├── ./trillian/docs/merkletree/treetex/README.md
+│   │   │       ├── ./trillian/docs/merkletree/treetex/images
+│   │   │       │   ├── ./trillian/docs/merkletree/treetex/images/compactrange.png
+│   │   │       │   ├── ./trillian/docs/merkletree/treetex/images/hashmode.png
+│   │   │       │   ├── ./trillian/docs/merkletree/treetex/images/inclusion.png
+│   │   │       │   ├── ./trillian/docs/merkletree/treetex/images/large.png
+│   │   │       │   └── ./trillian/docs/merkletree/treetex/images/leafdata.png
+│   │   │       └── ./trillian/docs/merkletree/treetex/main.go
+│   │   ├── ./trillian/docs/papers
+│   │   │   ├── ./trillian/docs/papers/RevocationTransparency.pdf
+│   │   │   └── ./trillian/docs/papers/VerifiableDataStructures.pdf
+│   │   ├── ./trillian/docs/storage
+│   │   │   ├── ./trillian/docs/storage/StratumDepth2.png
+│   │   │   ├── ./trillian/docs/storage/StratumDepth3.png
+│   │   │   ├── ./trillian/docs/storage/StratumDepth8.png
+│   │   │   ├── ./trillian/docs/storage/commit_log
+│   │   │   │   ├── ./trillian/docs/storage/commit_log/commit_log_based_storage_design.md
+│   │   │   │   ├── ./trillian/docs/storage/commit_log/commit_log_based_storage_design_overview.png
+│   │   │   │   ├── ./trillian/docs/storage/commit_log/main.go
+│   │   │   │   ├── ./trillian/docs/storage/commit_log/signer
+│   │   │   │   │   ├── ./trillian/docs/storage/commit_log/signer/fakedb.go
+│   │   │   │   │   ├── ./trillian/docs/storage/commit_log/signer/signer.go
+│   │   │   │   │   ├── ./trillian/docs/storage/commit_log/signer/signer_test.go
+│   │   │   │   │   └── ./trillian/docs/storage/commit_log/signer/types.go
+│   │   │   │   ├── ./trillian/docs/storage/commit_log/simelection
+│   │   │   │   │   └── ./trillian/docs/storage/commit_log/simelection/election.go
+│   │   │   │   └── ./trillian/docs/storage/commit_log/simkafka
+│   │   │   │       ├── ./trillian/docs/storage/commit_log/simkafka/kafka.go
+│   │   │   │       └── ./trillian/docs/storage/commit_log/simkafka/kafka_test.go
+│   │   │   ├── ./trillian/docs/storage/database-diagram.pdf
+│   │   │   ├── ./trillian/docs/storage/storage.md
+│   │   │   ├── ./trillian/docs/storage/tree_7.png
+│   │   │   └── ./trillian/docs/storage/tree_8.png
+│   │   └── ./trillian/docs/vds
+│   │       ├── ./trillian/docs/vds/VLDM1.png
+│   │       ├── ./trillian/docs/vds/VLDM2.png
+│   │       ├── ./trillian/docs/vds/VLDM3.png
+│   │       ├── ./trillian/docs/vds/verifiableLog.png
+│   │       └── ./trillian/docs/vds/verifiableMap.png
+│   ├── ./trillian/examples
+│   │   └── ./trillian/examples/deployment
+│   │       ├── ./trillian/examples/deployment/README.md
+│   │       ├── ./trillian/examples/deployment/aws
+│   │       │   ├── ./trillian/examples/deployment/aws/README.md
+│   │       │   └── ./trillian/examples/deployment/aws/terraform.tf
+│   │       ├── ./trillian/examples/deployment/docker
+│   │       │   ├── ./trillian/examples/deployment/docker/db_server
+│   │       │   │   ├── ./trillian/examples/deployment/docker/db_server/Dockerfile
+│   │       │   │   ├── ./trillian/examples/deployment/docker/db_server/mysql.cnf
+│   │       │   │   └── ./trillian/examples/deployment/docker/db_server/postgresql
+│   │       │   │       └── ./trillian/examples/deployment/docker/db_server/postgresql/Dockerfile
+│   │       │   ├── ./trillian/examples/deployment/docker/envsubst
+│   │       │   │   ├── ./trillian/examples/deployment/docker/envsubst/Dockerfile
+│   │       │   │   └── ./trillian/examples/deployment/docker/envsubst/envsubst_inplace.sh
+│   │       │   ├── ./trillian/examples/deployment/docker/log_server
+│   │       │   │   └── ./trillian/examples/deployment/docker/log_server/Dockerfile
+│   │       │   └── ./trillian/examples/deployment/docker/log_signer
+│   │       │       └── ./trillian/examples/deployment/docker/log_signer/Dockerfile
+│   │       ├── ./trillian/examples/deployment/docker-compose.yml
+│   │       ├── ./trillian/examples/deployment/kubernetes
+│   │       │   ├── ./trillian/examples/deployment/kubernetes/README.md
+│   │       │   ├── ./trillian/examples/deployment/kubernetes/create.sh
+│   │       │   ├── ./trillian/examples/deployment/kubernetes/db-deployment.yaml
+│   │       │   ├── ./trillian/examples/deployment/kubernetes/db-service.yaml
+│   │       │   ├── ./trillian/examples/deployment/kubernetes/delete.sh
+│   │       │   ├── ./trillian/examples/deployment/kubernetes/deploy.sh
+│   │       │   ├── ./trillian/examples/deployment/kubernetes/etcd-cluster.yaml
+│   │       │   ├── ./trillian/examples/deployment/kubernetes/etcd-deployment.yaml
+│   │       │   ├── ./trillian/examples/deployment/kubernetes/etcd-role-binding.yaml
+│   │       │   ├── ./trillian/examples/deployment/kubernetes/etcd-role.yaml
+│   │       │   ├── ./trillian/examples/deployment/kubernetes/example-config.sh
+│   │       │   ├── ./trillian/examples/deployment/kubernetes/mysql
+│   │       │   │   ├── ./trillian/examples/deployment/kubernetes/mysql/README.md
+│   │       │   │   ├── ./trillian/examples/deployment/kubernetes/mysql/galera.yaml
+│   │       │   │   ├── ./trillian/examples/deployment/kubernetes/mysql/image
+│   │       │   │   │   ├── ./trillian/examples/deployment/kubernetes/mysql/image/Dockerfile
+│   │       │   │   │   ├── ./trillian/examples/deployment/kubernetes/mysql/image/cluster.cnf
+│   │       │   │   │   ├── ./trillian/examples/deployment/kubernetes/mysql/image/docker-entrypoint.sh
+│   │       │   │   │   ├── ./trillian/examples/deployment/kubernetes/mysql/image/env.sh
+│   │       │   │   │   ├── ./trillian/examples/deployment/kubernetes/mysql/image/my.cnf
+│   │       │   │   │   └── ./trillian/examples/deployment/kubernetes/mysql/image/push.sh
+│   │       │   │   └── ./trillian/examples/deployment/kubernetes/mysql/resetdb.sh
+│   │       │   ├── ./trillian/examples/deployment/kubernetes/provision_tree.sh
+│   │       │   ├── ./trillian/examples/deployment/kubernetes/trillian-ci-mysql.yaml
+│   │       │   ├── ./trillian/examples/deployment/kubernetes/trillian-ci-spanner-config.sh
+│   │       │   ├── ./trillian/examples/deployment/kubernetes/trillian-ci-spanner.yaml
+│   │       │   ├── ./trillian/examples/deployment/kubernetes/trillian-cloudspanner.yaml
+│   │       │   ├── ./trillian/examples/deployment/kubernetes/trillian-ct-log-config.sh
+│   │       │   ├── ./trillian/examples/deployment/kubernetes/trillian-log-deployment.yaml
+│   │       │   ├── ./trillian/examples/deployment/kubernetes/trillian-log-service.yaml
+│   │       │   ├── ./trillian/examples/deployment/kubernetes/trillian-log-signer-deployment.yaml
+│   │       │   ├── ./trillian/examples/deployment/kubernetes/trillian-log-signer-service.yaml
+│   │       │   ├── ./trillian/examples/deployment/kubernetes/trillian-mysql.yaml
+│   │       │   └── ./trillian/examples/deployment/kubernetes/undeploy.sh
+│   │       ├── ./trillian/examples/deployment/postgresql
+│   │       │   └── ./trillian/examples/deployment/postgresql/docker-compose.yml
+│   │       └── ./trillian/examples/deployment/scripts
+│   │           └── ./trillian/examples/deployment/scripts/download-wait-for-it.sh
+│   ├── ./trillian/experimental
+│   │   └── ./trillian/experimental/batchmap
+│   │       ├── ./trillian/experimental/batchmap/README.md
+│   │       ├── ./trillian/experimental/batchmap/batchmap.shims.go
+│   │       ├── ./trillian/experimental/batchmap/cmd
+│   │       │   └── ./trillian/experimental/batchmap/cmd/verify
+│   │       │       └── ./trillian/experimental/batchmap/cmd/verify/verify.go
+│   │       ├── ./trillian/experimental/batchmap/tile.go
+│   │       ├── ./trillian/experimental/batchmap/tmap.go
+│   │       └── ./trillian/experimental/batchmap/tmap_test.go
+│   ├── ./trillian/extension
+│   │   ├── ./trillian/extension/README.md
+│   │   └── ./trillian/extension/registry.go
+│   ├── ./trillian/gen.go
+│   ├── ./trillian/go.mod
+│   ├── ./trillian/go.sum
+│   ├── ./trillian/integration
+│   │   ├── ./trillian/integration/README.md
+│   │   ├── ./trillian/integration/admin
+│   │   │   ├── ./trillian/integration/admin/admin_integration_test.go
+│   │   │   └── ./trillian/integration/admin/doc.go
+│   │   ├── ./trillian/integration/cloudbuild
+│   │   │   ├── ./trillian/integration/cloudbuild/docker-compose.mysql.yml
+│   │   │   ├── ./trillian/integration/cloudbuild/docker-compose.network.yml
+│   │   │   ├── ./trillian/integration/cloudbuild/prepare.sh
+│   │   │   ├── ./trillian/integration/cloudbuild/run_integration.sh
+│   │   │   ├── ./trillian/integration/cloudbuild/run_presubmit.sh
+│   │   │   └── ./trillian/integration/cloudbuild/testbase
+│   │   │       └── ./trillian/integration/cloudbuild/testbase/Dockerfile
+│   │   ├── ./trillian/integration/doc.go
+│   │   ├── ./trillian/integration/docker_compose_integration_test.sh
+│   │   ├── ./trillian/integration/format
+│   │   │   ├── ./trillian/integration/format/format.go
+│   │   │   ├── ./trillian/integration/format/nochange_test.go
+│   │   │   └── ./trillian/integration/format/testdata
+│   │   │       ├── ./trillian/integration/format/testdata/dump_tree_output_1000
+│   │   │       ├── ./trillian/integration/format/testdata/dump_tree_output_1024
+│   │   │       ├── ./trillian/integration/format/testdata/dump_tree_output_871
+│   │   │       └── ./trillian/integration/format/testdata/dump_tree_output_96
+│   │   ├── ./trillian/integration/functions.sh
+│   │   ├── ./trillian/integration/integration_test.sh
+│   │   ├── ./trillian/integration/log.go
+│   │   ├── ./trillian/integration/log_integration_test.go
+│   │   ├── ./trillian/integration/log_integration_test.sh
+│   │   ├── ./trillian/integration/log_md_test.sh
+│   │   ├── ./trillian/integration/quota
+│   │   │   ├── ./trillian/integration/quota/doc.go
+│   │   │   └── ./trillian/integration/quota/quota_test.go
+│   │   ├── ./trillian/integration/run_integration_test.sh
+│   │   └── ./trillian/integration/storagetest
+│   │       ├── ./trillian/integration/storagetest/doc.go
+│   │       ├── ./trillian/integration/storagetest/loghelpers.go
+│   │       ├── ./trillian/integration/storagetest/logtests.go
+│   │       ├── ./trillian/integration/storagetest/testrunner.go
+│   │       └── ./trillian/integration/storagetest/treehelpers.go
+│   ├── ./trillian/log
+│   │   ├── ./trillian/log/gen.go
+│   │   ├── ./trillian/log/mock_operation.go
+│   │   ├── ./trillian/log/operation_manager.go
+│   │   ├── ./trillian/log/operation_manager_test.go
+│   │   ├── ./trillian/log/sequencer.go
+│   │   ├── ./trillian/log/sequencer_manager.go
+│   │   ├── ./trillian/log/sequencer_manager_test.go
+│   │   └── ./trillian/log/sequencer_test.go
+│   ├── ./trillian/merkle
+│   │   ├── ./trillian/merkle/coniks
+│   │   │   ├── ./trillian/merkle/coniks/coniks.go
+│   │   │   └── ./trillian/merkle/coniks/coniks_test.go
+│   │   └── ./trillian/merkle/smt
+│   │       ├── ./trillian/merkle/smt/hasher.go
+│   │       ├── ./trillian/merkle/smt/hstar3.go
+│   │       ├── ./trillian/merkle/smt/hstar3_test.go
+│   │       ├── ./trillian/merkle/smt/layout.go
+│   │       ├── ./trillian/merkle/smt/layout_test.go
+│   │       ├── ./trillian/merkle/smt/node
+│   │       │   ├── ./trillian/merkle/smt/node/id.go
+│   │       │   └── ./trillian/merkle/smt/node/id_test.go
+│   │       ├── ./trillian/merkle/smt/nodes.go
+│   │       ├── ./trillian/merkle/smt/nodes_test.go
+│   │       ├── ./trillian/merkle/smt/tile.go
+│   │       ├── ./trillian/merkle/smt/tile_test.go
+│   │       ├── ./trillian/merkle/smt/tiles.go
+│   │       ├── ./trillian/merkle/smt/tiles_test.go
+│   │       ├── ./trillian/merkle/smt/writer.go
+│   │       └── ./trillian/merkle/smt/writer_test.go
+│   ├── ./trillian/monitoring
+│   │   ├── ./trillian/monitoring/buckets.go
+│   │   ├── ./trillian/monitoring/buckets_test.go
+│   │   ├── ./trillian/monitoring/inert.go
+│   │   ├── ./trillian/monitoring/labels.go
+│   │   ├── ./trillian/monitoring/metrics.go
+│   │   ├── ./trillian/monitoring/metrics_test.go
+│   │   ├── ./trillian/monitoring/opencensus
+│   │   │   └── ./trillian/monitoring/opencensus/trace.go
+│   │   ├── ./trillian/monitoring/prometheus
+│   │   │   ├── ./trillian/monitoring/prometheus/metrics.go
+│   │   │   └── ./trillian/monitoring/prometheus/metrics_test.go
+│   │   ├── ./trillian/monitoring/rpc_stats_interceptor.go
+│   │   ├── ./trillian/monitoring/rpc_stats_interceptor_test.go
+│   │   ├── ./trillian/monitoring/testonly
+│   │   │   ├── ./trillian/monitoring/testonly/delta.go
+│   │   │   ├── ./trillian/monitoring/testonly/doc.go
+│   │   │   └── ./trillian/monitoring/testonly/metrics.go
+│   │   └── ./trillian/monitoring/trace.go
+│   ├── ./trillian/quota
+│   │   ├── ./trillian/quota/cacheqm
+│   │   │   ├── ./trillian/quota/cacheqm/cache.go
+│   │   │   └── ./trillian/quota/cacheqm/cache_test.go
+│   │   ├── ./trillian/quota/crdbqm
+│   │   │   ├── ./trillian/quota/crdbqm/common_test.go
+│   │   │   ├── ./trillian/quota/crdbqm/crdb_quota.go
+│   │   │   ├── ./trillian/quota/crdbqm/crdb_quota_test.go
+│   │   │   └── ./trillian/quota/crdbqm/quota_provider.go
+│   │   ├── ./trillian/quota/doc.go
+│   │   ├── ./trillian/quota/etcd
+│   │   │   ├── ./trillian/quota/etcd/README.md
+│   │   │   ├── ./trillian/quota/etcd/etcdqm
+│   │   │   │   ├── ./trillian/quota/etcd/etcdqm/etcdqm.go
+│   │   │   │   └── ./trillian/quota/etcd/etcdqm/etcdqm_test.go
+│   │   │   ├── ./trillian/quota/etcd/quota_provider.go
+│   │   │   ├── ./trillian/quota/etcd/quotaapi
+│   │   │   │   ├── ./trillian/quota/etcd/quotaapi/conversions.go
+│   │   │   │   ├── ./trillian/quota/etcd/quotaapi/conversions_test.go
+│   │   │   │   ├── ./trillian/quota/etcd/quotaapi/name.go
+│   │   │   │   ├── ./trillian/quota/etcd/quotaapi/name_test.go
+│   │   │   │   ├── ./trillian/quota/etcd/quotaapi/quota_server.go
+│   │   │   │   └── ./trillian/quota/etcd/quotaapi/quota_server_test.go
+│   │   │   ├── ./trillian/quota/etcd/quotapb
+│   │   │   │   ├── ./trillian/quota/etcd/quotapb/doc.go
+│   │   │   │   ├── ./trillian/quota/etcd/quotapb/gen.go
+│   │   │   │   ├── ./trillian/quota/etcd/quotapb/quotapb.pb.go
+│   │   │   │   ├── ./trillian/quota/etcd/quotapb/quotapb.proto
+│   │   │   │   └── ./trillian/quota/etcd/quotapb/quotapb_grpc.pb.go
+│   │   │   ├── ./trillian/quota/etcd/storage
+│   │   │   │   ├── ./trillian/quota/etcd/storage/quota_storage.go
+│   │   │   │   └── ./trillian/quota/etcd/storage/quota_storage_test.go
+│   │   │   └── ./trillian/quota/etcd/storagepb
+│   │   │       ├── ./trillian/quota/etcd/storagepb/gen.go
+│   │   │       ├── ./trillian/quota/etcd/storagepb/storagepb.pb.go
+│   │   │       └── ./trillian/quota/etcd/storagepb/storagepb.proto
+│   │   ├── ./trillian/quota/gen.go
+│   │   ├── ./trillian/quota/group_string.go
+│   │   ├── ./trillian/quota/kind_string.go
+│   │   ├── ./trillian/quota/metrics.go
+│   │   ├── ./trillian/quota/mock_quota.go
+│   │   ├── ./trillian/quota/mysqlqm
+│   │   │   ├── ./trillian/quota/mysqlqm/mysql_quota.go
+│   │   │   ├── ./trillian/quota/mysqlqm/mysql_quota_test.go
+│   │   │   └── ./trillian/quota/mysqlqm/quota_provider.go
+│   │   ├── ./trillian/quota/noop.go
+│   │   ├── ./trillian/quota/noop_test.go
+│   │   ├── ./trillian/quota/postgresqlqm
+│   │   │   ├── ./trillian/quota/postgresqlqm/postgresql_quota.go
+│   │   │   ├── ./trillian/quota/postgresqlqm/postgresql_quota_test.go
+│   │   │   └── ./trillian/quota/postgresqlqm/quota_provider.go
+│   │   ├── ./trillian/quota/provider.go
+│   │   ├── ./trillian/quota/provider_test.go
+│   │   ├── ./trillian/quota/quota.go
+│   │   ├── ./trillian/quota/quota_test.go
+│   │   └── ./trillian/quota/redis
+│   │       ├── ./trillian/quota/redis/redisqm
+│   │       │   └── ./trillian/quota/redis/redisqm/manager.go
+│   │       └── ./trillian/quota/redis/redistb
+│   │           ├── ./trillian/quota/redis/redistb/embed_redis.go
+│   │           ├── ./trillian/quota/redis/redistb/gen.go
+│   │           ├── ./trillian/quota/redis/redistb/redistb.go
+│   │           ├── ./trillian/quota/redis/redistb/redistb_test.go
+│   │           ├── ./trillian/quota/redis/redistb/update_token_bucket.gen.go
+│   │           └── ./trillian/quota/redis/redistb/update_token_bucket.lua
+│   ├── ./trillian/scripts
+│   │   ├── ./trillian/scripts/check_license.sh
+│   │   ├── ./trillian/scripts/install_deps.sh
+│   │   ├── ./trillian/scripts/mysqlconnlimit.sh
+│   │   ├── ./trillian/scripts/presubmit.sh
+│   │   ├── ./trillian/scripts/resetcrdb.sh
+│   │   ├── ./trillian/scripts/resetdb.sh
+│   │   └── ./trillian/scripts/resetpgdb.sh
+│   ├── ./trillian/server
+│   │   ├── ./trillian/server/admin
+│   │   │   ├── ./trillian/server/admin/admin_server.go
+│   │   │   ├── ./trillian/server/admin/admin_server_test.go
+│   │   │   ├── ./trillian/server/admin/doc.go
+│   │   │   ├── ./trillian/server/admin/tree_gc.go
+│   │   │   └── ./trillian/server/admin/tree_gc_test.go
+│   │   ├── ./trillian/server/doc.go
+│   │   ├── ./trillian/server/errors
+│   │   │   ├── ./trillian/server/errors/doc.go
+│   │   │   ├── ./trillian/server/errors/errors.go
+│   │   │   └── ./trillian/server/errors/errors_test.go
+│   │   ├── ./trillian/server/interceptor
+│   │   │   ├── ./trillian/server/interceptor/interceptor.go
+│   │   │   └── ./trillian/server/interceptor/interceptor_test.go
+│   │   ├── ./trillian/server/log_rpc_server.go
+│   │   ├── ./trillian/server/log_rpc_server_test.go
+│   │   ├── ./trillian/server/proof_fetcher.go
+│   │   ├── ./trillian/server/proof_fetcher_test.go
+│   │   └── ./trillian/server/validate.go
+│   ├── ./trillian/storage
+│   │   ├── ./trillian/storage/README.md
+│   │   ├── ./trillian/storage/admin_helpers.go
+│   │   ├── ./trillian/storage/admin_helpers_test.go
+│   │   ├── ./trillian/storage/admin_storage.go
+│   │   ├── ./trillian/storage/cache
+│   │   │   ├── ./trillian/storage/cache/gen.go
+│   │   │   ├── ./trillian/storage/cache/layout.go
+│   │   │   ├── ./trillian/storage/cache/layout_test.go
+│   │   │   ├── ./trillian/storage/cache/log_tile.go
+│   │   │   ├── ./trillian/storage/cache/mock_node_storage.go
+│   │   │   ├── ./trillian/storage/cache/subtree_cache.go
+│   │   │   ├── ./trillian/storage/cache/subtree_cache_test.go
+│   │   │   ├── ./trillian/storage/cache/suffix.go
+│   │   │   └── ./trillian/storage/cache/suffix_test.go
+│   │   ├── ./trillian/storage/cloudspanner
+│   │   │   ├── ./trillian/storage/cloudspanner/admin.go
+│   │   │   ├── ./trillian/storage/cloudspanner/doc.go
+│   │   │   ├── ./trillian/storage/cloudspanner/gen.sh
+│   │   │   ├── ./trillian/storage/cloudspanner/getdb_test.go
+│   │   │   ├── ./trillian/storage/cloudspanner/log_storage.go
+│   │   │   ├── ./trillian/storage/cloudspanner/log_storage_test.go
+│   │   │   ├── ./trillian/storage/cloudspanner/sdl.go
+│   │   │   ├── ./trillian/storage/cloudspanner/sdl_test.go
+│   │   │   ├── ./trillian/storage/cloudspanner/spanner.sdl
+│   │   │   ├── ./trillian/storage/cloudspanner/spanner.sdl.go
+│   │   │   ├── ./trillian/storage/cloudspanner/spannerpb
+│   │   │   │   ├── ./trillian/storage/cloudspanner/spannerpb/gen.go
+│   │   │   │   ├── ./trillian/storage/cloudspanner/spannerpb/spanner.pb.go
+│   │   │   │   └── ./trillian/storage/cloudspanner/spannerpb/spanner.proto
+│   │   │   ├── ./trillian/storage/cloudspanner/storage_provider.go
+│   │   │   └── ./trillian/storage/cloudspanner/tree_storage.go
+│   │   ├── ./trillian/storage/crdb
+│   │   │   ├── ./trillian/storage/crdb/common_test.go
+│   │   │   ├── ./trillian/storage/crdb/drop_storage.sql
+│   │   │   ├── ./trillian/storage/crdb/errors.go
+│   │   │   ├── ./trillian/storage/crdb/log_storage.go
+│   │   │   ├── ./trillian/storage/crdb/log_storage_test.go
+│   │   │   ├── ./trillian/storage/crdb/pg.go
+│   │   │   ├── ./trillian/storage/crdb/provider.go
+│   │   │   ├── ./trillian/storage/crdb/provider_test.go
+│   │   │   ├── ./trillian/storage/crdb/queue.go
+│   │   │   ├── ./trillian/storage/crdb/schema
+│   │   │   │   └── ./trillian/storage/crdb/schema/storage.sql
+│   │   │   ├── ./trillian/storage/crdb/sql.go
+│   │   │   ├── ./trillian/storage/crdb/sqladminstorage.go
+│   │   │   ├── ./trillian/storage/crdb/sqladminstorage_test.go
+│   │   │   ├── ./trillian/storage/crdb/storage_test.go
+│   │   │   └── ./trillian/storage/crdb/tree_storage.go
+│   │   ├── ./trillian/storage/gen.go
+│   │   ├── ./trillian/storage/log_storage.go
+│   │   ├── ./trillian/storage/memory
+│   │   │   ├── ./trillian/storage/memory/admin_storage.go
+│   │   │   ├── ./trillian/storage/memory/doc.go
+│   │   │   ├── ./trillian/storage/memory/log_storage.go
+│   │   │   ├── ./trillian/storage/memory/provider.go
+│   │   │   ├── ./trillian/storage/memory/provider_test.go
+│   │   │   ├── ./trillian/storage/memory/tree_debug.go
+│   │   │   └── ./trillian/storage/memory/tree_storage.go
+│   │   ├── ./trillian/storage/mock_storage.go
+│   │   ├── ./trillian/storage/mysql
+│   │   │   ├── ./trillian/storage/mysql/admin_storage.go
+│   │   │   ├── ./trillian/storage/mysql/admin_storage_test.go
+│   │   │   ├── ./trillian/storage/mysql/drop_storage.sql
+│   │   │   ├── ./trillian/storage/mysql/errors.go
+│   │   │   ├── ./trillian/storage/mysql/log_storage.go
+│   │   │   ├── ./trillian/storage/mysql/log_storage_test.go
+│   │   │   ├── ./trillian/storage/mysql/mysqlpb
+│   │   │   │   ├── ./trillian/storage/mysql/mysqlpb/gen.go
+│   │   │   │   ├── ./trillian/storage/mysql/mysqlpb/options.pb.go
+│   │   │   │   └── ./trillian/storage/mysql/mysqlpb/options.proto
+│   │   │   ├── ./trillian/storage/mysql/provider.go
+│   │   │   ├── ./trillian/storage/mysql/provider_test.go
+│   │   │   ├── ./trillian/storage/mysql/queue.go
+│   │   │   ├── ./trillian/storage/mysql/queue_batching.go
+│   │   │   ├── ./trillian/storage/mysql/schema
+│   │   │   │   └── ./trillian/storage/mysql/schema/storage.sql
+│   │   │   ├── ./trillian/storage/mysql/sql.go
+│   │   │   ├── ./trillian/storage/mysql/storage_test.go
+│   │   │   └── ./trillian/storage/mysql/tree_storage.go
+│   │   ├── ./trillian/storage/postgresql
+│   │   │   ├── ./trillian/storage/postgresql/README.md
+│   │   │   ├── ./trillian/storage/postgresql/admin_storage.go
+│   │   │   ├── ./trillian/storage/postgresql/admin_storage_test.go
+│   │   │   ├── ./trillian/storage/postgresql/drop_storage.sql
+│   │   │   ├── ./trillian/storage/postgresql/errors.go
+│   │   │   ├── ./trillian/storage/postgresql/log_storage.go
+│   │   │   ├── ./trillian/storage/postgresql/log_storage_test.go
+│   │   │   ├── ./trillian/storage/postgresql/provider.go
+│   │   │   ├── ./trillian/storage/postgresql/provider_test.go
+│   │   │   ├── ./trillian/storage/postgresql/queue.go
+│   │   │   ├── ./trillian/storage/postgresql/schema
+│   │   │   │   └── ./trillian/storage/postgresql/schema/storage.sql
+│   │   │   ├── ./trillian/storage/postgresql/sql.go
+│   │   │   ├── ./trillian/storage/postgresql/storage_test.go
+│   │   │   ├── ./trillian/storage/postgresql/testdbpgx
+│   │   │   │   └── ./trillian/storage/postgresql/testdbpgx/testdbpgx.go
+│   │   │   └── ./trillian/storage/postgresql/tree_storage.go
+│   │   ├── ./trillian/storage/provider.go
+│   │   ├── ./trillian/storage/provider_test.go
+│   │   ├── ./trillian/storage/storagepb
+│   │   │   ├── ./trillian/storage/storagepb/gen.go
+│   │   │   ├── ./trillian/storage/storagepb/storage.pb.go
+│   │   │   └── ./trillian/storage/storagepb/storage.proto
+│   │   ├── ./trillian/storage/testdb
+│   │   │   ├── ./trillian/storage/testdb/testdb.go
+│   │   │   └── ./trillian/storage/testdb/testdb_test.go
+│   │   ├── ./trillian/storage/testonly
+│   │   │   ├── ./trillian/storage/testonly/admin_storage_tester.go
+│   │   │   ├── ./trillian/storage/testonly/doc.go
+│   │   │   ├── ./trillian/storage/testonly/fake_node_reader.go
+│   │   │   ├── ./trillian/storage/testonly/matchers.go
+│   │   │   └── ./trillian/storage/testonly/transaction.go
+│   │   ├── ./trillian/storage/tree
+│   │   │   └── ./trillian/storage/tree/node.go
+│   │   ├── ./trillian/storage/tree_id.go
+│   │   ├── ./trillian/storage/tree_id_test.go
+│   │   ├── ./trillian/storage/tree_validation.go
+│   │   └── ./trillian/storage/tree_validation_test.go
+│   ├── ./trillian/testdata
+│   │   ├── ./trillian/testdata/Makefile
+│   │   ├── ./trillian/testdata/README.md
+│   │   ├── ./trillian/testdata/log-rpc-server-pkcs11.privkey.pem
+│   │   ├── ./trillian/testdata/log-rpc-server-pkcs11.pubkey.pem
+│   │   ├── ./trillian/testdata/log-rpc-server.privkey.pem
+│   │   ├── ./trillian/testdata/log-rpc-server.pubkey.pem
+│   │   ├── ./trillian/testdata/map-rpc-server.privkey.pem
+│   │   ├── ./trillian/testdata/map-rpc-server.pubkey.pem
+│   │   └── ./trillian/testdata/pkcs11-conf.json
+│   ├── ./trillian/testonly
+│   │   ├── ./trillian/testonly/doc.go
+│   │   ├── ./trillian/testonly/encoding.go
+│   │   ├── ./trillian/testonly/errors.go
+│   │   ├── ./trillian/testonly/flagsaver
+│   │   │   ├── ./trillian/testonly/flagsaver/flagsaver.go
+│   │   │   └── ./trillian/testonly/flagsaver/flagsaver_test.go
+│   │   ├── ./trillian/testonly/hasher.go
+│   │   ├── ./trillian/testonly/integration
+│   │   │   ├── ./trillian/testonly/integration/etcd
+│   │   │   │   └── ./trillian/testonly/integration/etcd/etcd.go
+│   │   │   ├── ./trillian/testonly/integration/logenv.go
+│   │   │   ├── ./trillian/testonly/integration/port.go
+│   │   │   └── ./trillian/testonly/integration/registry.go
+│   │   ├── ./trillian/testonly/keys.go
+│   │   ├── ./trillian/testonly/marshalling.go
+│   │   ├── ./trillian/testonly/matchers
+│   │   │   ├── ./trillian/testonly/matchers/atleast.go
+│   │   │   ├── ./trillian/testonly/matchers/atleast_test.go
+│   │   │   ├── ./trillian/testonly/matchers/proto.go
+│   │   │   └── ./trillian/testonly/matchers/proto_test.go
+│   │   ├── ./trillian/testonly/mdm
+│   │   │   ├── ./trillian/testonly/mdm/mdm.go
+│   │   │   └── ./trillian/testonly/mdm/mdmtest
+│   │   │       └── ./trillian/testonly/mdm/mdmtest/main.go
+│   │   ├── ./trillian/testonly/mock_server.go
+│   │   ├── ./trillian/testonly/paths.go
+│   │   ├── ./trillian/testonly/setup
+│   │   │   ├── ./trillian/testonly/setup/doc.go
+│   │   │   ├── ./trillian/testonly/setup/files.go
+│   │   │   ├── ./trillian/testonly/setup/flags.go
+│   │   │   └── ./trillian/testonly/setup/tls.go
+│   │   ├── ./trillian/testonly/signer.go
+│   │   └── ./trillian/testonly/tmock
+│   │       ├── ./trillian/testonly/tmock/mock_admin_server.go
+│   │       └── ./trillian/testonly/tmock/mock_log_server.go
+│   ├── ./trillian/third_party
+│   │   └── ./trillian/third_party/googleapis
+│   │       ├── ./trillian/third_party/googleapis/README.md
+│   │       └── ./trillian/third_party/googleapis/google
+│   │           ├── ./trillian/third_party/googleapis/google/api
+│   │           │   ├── ./trillian/third_party/googleapis/google/api/annotations.proto
+│   │           │   └── ./trillian/third_party/googleapis/google/api/http.proto
+│   │           └── ./trillian/third_party/googleapis/google/rpc
+│   │               ├── ./trillian/third_party/googleapis/google/rpc/code.proto
+│   │               └── ./trillian/third_party/googleapis/google/rpc/status.proto
+│   ├── ./trillian/tools
+│   │   └── ./trillian/tools/tools.go
+│   ├── ./trillian/trees
+│   │   ├── ./trillian/trees/gen.go
+│   │   ├── ./trillian/trees/optype_string.go
+│   │   ├── ./trillian/trees/trees.go
+│   │   ├── ./trillian/trees/trees_test.go
+│   │   └── ./trillian/trees/types.go
+│   ├── ./trillian/trillian.pb.go
+│   ├── ./trillian/trillian.proto
+│   ├── ./trillian/trillian_admin_api.pb.go
+│   ├── ./trillian/trillian_admin_api.proto
+│   ├── ./trillian/trillian_admin_api_grpc.pb.go
+│   ├── ./trillian/trillian_log_api.pb.go
+│   ├── ./trillian/trillian_log_api.proto
+│   ├── ./trillian/trillian_log_api_grpc.pb.go
+│   ├── ./trillian/types
+│   │   ├── ./trillian/types/internal
+│   │   │   └── ./trillian/types/internal/tls
+│   │   │       └── ./trillian/types/internal/tls/tls.go
+│   │   ├── ./trillian/types/logroot.go
+│   │   └── ./trillian/types/logroot_test.go
+│   └── ./trillian/util
+│       ├── ./trillian/util/clock
+│       │   ├── ./trillian/util/clock/time.go
+│       │   ├── ./trillian/util/clock/time_test.go
+│       │   ├── ./trillian/util/clock/timer.go
+│       │   ├── ./trillian/util/clock/timer_test.go
+│       │   ├── ./trillian/util/clock/timesource.go
+│       │   └── ./trillian/util/clock/timesource_test.go
+│       ├── ./trillian/util/election
+│       │   ├── ./trillian/util/election/doc.go
+│       │   ├── ./trillian/util/election/runner.go
+│       │   ├── ./trillian/util/election/runner_test.go
+│       │   ├── ./trillian/util/election/tracker.go
+│       │   └── ./trillian/util/election/tracker_test.go
+│       ├── ./trillian/util/election2
+│       │   ├── ./trillian/util/election2/election.go
+│       │   ├── ./trillian/util/election2/etcd
+│       │   │   ├── ./trillian/util/election2/etcd/election.go
+│       │   │   ├── ./trillian/util/election2/etcd/election_test.go
+│       │   │   └── ./trillian/util/election2/etcd/provider.go
+│       │   ├── ./trillian/util/election2/k8s
+│       │   │   ├── ./trillian/util/election2/k8s/election.go
+│       │   │   ├── ./trillian/util/election2/k8s/election_test.go
+│       │   │   └── ./trillian/util/election2/k8s/provider.go
+│       │   ├── ./trillian/util/election2/noop.go
+│       │   ├── ./trillian/util/election2/provider.go
+│       │   └── ./trillian/util/election2/testonly
+│       │       ├── ./trillian/util/election2/testonly/decorator.go
+│       │       ├── ./trillian/util/election2/testonly/election.go
+│       │       ├── ./trillian/util/election2/testonly/election_test.go
+│       │       └── ./trillian/util/election2/testonly/tests.go
+│       └── ./trillian/util/process.go
+├── ./verify-env.sh
+├── ./verillm
+│   ├── ./verillm/LICENSE
+│   └── ./verillm/README.md
+├── ./verillm-env
+│   ├── ./verillm-env/bin
+│   │   ├── ./verillm-env/bin/Activate.ps1
+│   │   ├── ./verillm-env/bin/activate
+│   │   ├── ./verillm-env/bin/activate.csh
+│   │   ├── ./verillm-env/bin/activate.fish
+│   │   ├── ./verillm-env/bin/pip
+│   │   ├── ./verillm-env/bin/pip3
+│   │   ├── ./verillm-env/bin/pip3.14
+│   │   ├── ./verillm-env/bin/python -> python3.14
+│   │   ├── ./verillm-env/bin/python3 -> python3.14
+│   │   ├── ./verillm-env/bin/python3.14 -> /opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/bin/python3.14
+│   │   └── ./verillm-env/bin/𝜋thon -> python3.14
+│   ├── ./verillm-env/include
+│   ├── ./verillm-env/lib
+│   │   └── ./verillm-env/lib/python3.14
+│   │       └── ./verillm-env/lib/python3.14/site-packages
+│   │           ├── ./verillm-env/lib/python3.14/site-packages/pip
+│   │           │   ├── ./verillm-env/lib/python3.14/site-packages/pip/__init__.py
+│   │           │   ├── ./verillm-env/lib/python3.14/site-packages/pip/__main__.py
+│   │           │   ├── ./verillm-env/lib/python3.14/site-packages/pip/__pip-runner__.py
+│   │           │   ├── ./verillm-env/lib/python3.14/site-packages/pip/__pycache__
+│   │           │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/__pycache__/__init__.cpython-314.pyc
+│   │           │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/__pycache__/__main__.cpython-314.pyc
+│   │           │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/__pycache__/__pip-runner__.cpython-314.pyc
+│   │           │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal
+│   │           │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/__init__.py
+│   │           │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/__pycache__
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/__pycache__/__init__.cpython-314.pyc
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/__pycache__/build_env.cpython-314.pyc
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/__pycache__/cache.cpython-314.pyc
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/__pycache__/configuration.cpython-314.pyc
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/__pycache__/exceptions.cpython-314.pyc
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/__pycache__/main.cpython-314.pyc
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/__pycache__/pyproject.cpython-314.pyc
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/__pycache__/self_outdated_check.cpython-314.pyc
+│   │           │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_internal/__pycache__/wheel_builder.cpython-314.pyc
+│   │           │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/build_env.py
+│   │           │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/cache.py
+│   │           │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/cli
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/cli/__init__.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/cli/__pycache__
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/cli/__pycache__/__init__.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/cli/__pycache__/autocompletion.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/cli/__pycache__/base_command.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/cli/__pycache__/cmdoptions.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/cli/__pycache__/command_context.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/cli/__pycache__/index_command.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/cli/__pycache__/main.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/cli/__pycache__/main_parser.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/cli/__pycache__/parser.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/cli/__pycache__/progress_bars.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/cli/__pycache__/req_command.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/cli/__pycache__/spinners.cpython-314.pyc
+│   │           │   │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_internal/cli/__pycache__/status_codes.cpython-314.pyc
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/cli/autocompletion.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/cli/base_command.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/cli/cmdoptions.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/cli/command_context.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/cli/index_command.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/cli/main.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/cli/main_parser.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/cli/parser.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/cli/progress_bars.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/cli/req_command.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/cli/spinners.py
+│   │           │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_internal/cli/status_codes.py
+│   │           │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/commands
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/commands/__init__.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/commands/__pycache__
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/commands/__pycache__/__init__.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/commands/__pycache__/cache.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/commands/__pycache__/check.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/commands/__pycache__/completion.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/commands/__pycache__/configuration.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/commands/__pycache__/debug.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/commands/__pycache__/download.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/commands/__pycache__/freeze.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/commands/__pycache__/hash.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/commands/__pycache__/help.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/commands/__pycache__/index.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/commands/__pycache__/inspect.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/commands/__pycache__/install.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/commands/__pycache__/list.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/commands/__pycache__/lock.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/commands/__pycache__/search.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/commands/__pycache__/show.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/commands/__pycache__/uninstall.cpython-314.pyc
+│   │           │   │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_internal/commands/__pycache__/wheel.cpython-314.pyc
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/commands/cache.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/commands/check.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/commands/completion.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/commands/configuration.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/commands/debug.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/commands/download.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/commands/freeze.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/commands/hash.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/commands/help.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/commands/index.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/commands/inspect.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/commands/install.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/commands/list.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/commands/lock.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/commands/search.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/commands/show.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/commands/uninstall.py
+│   │           │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_internal/commands/wheel.py
+│   │           │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/configuration.py
+│   │           │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/distributions
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/distributions/__init__.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/distributions/__pycache__
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/distributions/__pycache__/__init__.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/distributions/__pycache__/base.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/distributions/__pycache__/installed.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/distributions/__pycache__/sdist.cpython-314.pyc
+│   │           │   │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_internal/distributions/__pycache__/wheel.cpython-314.pyc
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/distributions/base.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/distributions/installed.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/distributions/sdist.py
+│   │           │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_internal/distributions/wheel.py
+│   │           │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/exceptions.py
+│   │           │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/index
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/index/__init__.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/index/__pycache__
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/index/__pycache__/__init__.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/index/__pycache__/collector.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/index/__pycache__/package_finder.cpython-314.pyc
+│   │           │   │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_internal/index/__pycache__/sources.cpython-314.pyc
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/index/collector.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/index/package_finder.py
+│   │           │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_internal/index/sources.py
+│   │           │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/locations
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/locations/__init__.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/locations/__pycache__
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/locations/__pycache__/__init__.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/locations/__pycache__/_distutils.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/locations/__pycache__/_sysconfig.cpython-314.pyc
+│   │           │   │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_internal/locations/__pycache__/base.cpython-314.pyc
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/locations/_distutils.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/locations/_sysconfig.py
+│   │           │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_internal/locations/base.py
+│   │           │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/main.py
+│   │           │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/metadata
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/metadata/__init__.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/metadata/__pycache__
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/metadata/__pycache__/__init__.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/metadata/__pycache__/_json.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/metadata/__pycache__/base.cpython-314.pyc
+│   │           │   │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_internal/metadata/__pycache__/pkg_resources.cpython-314.pyc
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/metadata/_json.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/metadata/base.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/metadata/importlib
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/metadata/importlib/__init__.py
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/metadata/importlib/__pycache__
+│   │           │   │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/metadata/importlib/__pycache__/__init__.cpython-314.pyc
+│   │           │   │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/metadata/importlib/__pycache__/_compat.cpython-314.pyc
+│   │           │   │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/metadata/importlib/__pycache__/_dists.cpython-314.pyc
+│   │           │   │   │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_internal/metadata/importlib/__pycache__/_envs.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/metadata/importlib/_compat.py
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/metadata/importlib/_dists.py
+│   │           │   │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_internal/metadata/importlib/_envs.py
+│   │           │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_internal/metadata/pkg_resources.py
+│   │           │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/models
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/models/__init__.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/models/__pycache__
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/models/__pycache__/__init__.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/models/__pycache__/candidate.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/models/__pycache__/direct_url.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/models/__pycache__/format_control.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/models/__pycache__/index.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/models/__pycache__/installation_report.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/models/__pycache__/link.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/models/__pycache__/release_control.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/models/__pycache__/scheme.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/models/__pycache__/search_scope.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/models/__pycache__/selection_prefs.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/models/__pycache__/target_python.cpython-314.pyc
+│   │           │   │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_internal/models/__pycache__/wheel.cpython-314.pyc
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/models/candidate.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/models/direct_url.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/models/format_control.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/models/index.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/models/installation_report.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/models/link.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/models/release_control.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/models/scheme.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/models/search_scope.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/models/selection_prefs.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/models/target_python.py
+│   │           │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_internal/models/wheel.py
+│   │           │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/network
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/network/__init__.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/network/__pycache__
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/network/__pycache__/__init__.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/network/__pycache__/auth.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/network/__pycache__/cache.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/network/__pycache__/download.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/network/__pycache__/lazy_wheel.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/network/__pycache__/session.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/network/__pycache__/utils.cpython-314.pyc
+│   │           │   │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_internal/network/__pycache__/xmlrpc.cpython-314.pyc
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/network/auth.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/network/cache.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/network/download.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/network/lazy_wheel.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/network/session.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/network/utils.py
+│   │           │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_internal/network/xmlrpc.py
+│   │           │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/operations
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/operations/__init__.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/operations/__pycache__
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/operations/__pycache__/__init__.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/operations/__pycache__/check.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/operations/__pycache__/freeze.cpython-314.pyc
+│   │           │   │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_internal/operations/__pycache__/prepare.cpython-314.pyc
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/operations/check.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/operations/freeze.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/operations/install
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/operations/install/__init__.py
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/operations/install/__pycache__
+│   │           │   │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/operations/install/__pycache__/__init__.cpython-314.pyc
+│   │           │   │   │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_internal/operations/install/__pycache__/wheel.cpython-314.pyc
+│   │           │   │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_internal/operations/install/wheel.py
+│   │           │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_internal/operations/prepare.py
+│   │           │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/pyproject.py
+│   │           │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/req
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/req/__init__.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/req/__pycache__
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/req/__pycache__/__init__.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/req/__pycache__/constructors.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/req/__pycache__/pep723.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/req/__pycache__/req_dependency_group.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/req/__pycache__/req_file.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/req/__pycache__/req_install.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/req/__pycache__/req_set.cpython-314.pyc
+│   │           │   │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_internal/req/__pycache__/req_uninstall.cpython-314.pyc
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/req/constructors.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/req/pep723.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/req/req_dependency_group.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/req/req_file.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/req/req_install.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/req/req_set.py
+│   │           │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_internal/req/req_uninstall.py
+│   │           │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/resolution
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/resolution/__init__.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/resolution/__pycache__
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/resolution/__pycache__/__init__.cpython-314.pyc
+│   │           │   │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_internal/resolution/__pycache__/base.cpython-314.pyc
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/resolution/base.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/resolution/legacy
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/resolution/legacy/__init__.py
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/resolution/legacy/__pycache__
+│   │           │   │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/resolution/legacy/__pycache__/__init__.cpython-314.pyc
+│   │           │   │   │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_internal/resolution/legacy/__pycache__/resolver.cpython-314.pyc
+│   │           │   │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_internal/resolution/legacy/resolver.py
+│   │           │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_internal/resolution/resolvelib
+│   │           │   │   │       ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/resolution/resolvelib/__init__.py
+│   │           │   │   │       ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/resolution/resolvelib/__pycache__
+│   │           │   │   │       │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/resolution/resolvelib/__pycache__/__init__.cpython-314.pyc
+│   │           │   │   │       │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/resolution/resolvelib/__pycache__/base.cpython-314.pyc
+│   │           │   │   │       │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/resolution/resolvelib/__pycache__/candidates.cpython-314.pyc
+│   │           │   │   │       │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/resolution/resolvelib/__pycache__/factory.cpython-314.pyc
+│   │           │   │   │       │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/resolution/resolvelib/__pycache__/found_candidates.cpython-314.pyc
+│   │           │   │   │       │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/resolution/resolvelib/__pycache__/provider.cpython-314.pyc
+│   │           │   │   │       │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/resolution/resolvelib/__pycache__/reporter.cpython-314.pyc
+│   │           │   │   │       │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/resolution/resolvelib/__pycache__/requirements.cpython-314.pyc
+│   │           │   │   │       │   └── ./verillm-env/lib/python3.14/site-packages/pip/_internal/resolution/resolvelib/__pycache__/resolver.cpython-314.pyc
+│   │           │   │   │       ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/resolution/resolvelib/base.py
+│   │           │   │   │       ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/resolution/resolvelib/candidates.py
+│   │           │   │   │       ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/resolution/resolvelib/factory.py
+│   │           │   │   │       ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/resolution/resolvelib/found_candidates.py
+│   │           │   │   │       ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/resolution/resolvelib/provider.py
+│   │           │   │   │       ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/resolution/resolvelib/reporter.py
+│   │           │   │   │       ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/resolution/resolvelib/requirements.py
+│   │           │   │   │       └── ./verillm-env/lib/python3.14/site-packages/pip/_internal/resolution/resolvelib/resolver.py
+│   │           │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/self_outdated_check.py
+│   │           │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/utils
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/utils/__init__.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/utils/__pycache__
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/utils/__pycache__/__init__.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/utils/__pycache__/_jaraco_text.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/utils/__pycache__/_log.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/utils/__pycache__/appdirs.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/utils/__pycache__/compat.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/utils/__pycache__/compatibility_tags.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/utils/__pycache__/datetime.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/utils/__pycache__/deprecation.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/utils/__pycache__/direct_url_helpers.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/utils/__pycache__/egg_link.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/utils/__pycache__/entrypoints.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/utils/__pycache__/filesystem.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/utils/__pycache__/filetypes.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/utils/__pycache__/glibc.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/utils/__pycache__/hashes.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/utils/__pycache__/logging.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/utils/__pycache__/misc.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/utils/__pycache__/packaging.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/utils/__pycache__/pylock.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/utils/__pycache__/retry.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/utils/__pycache__/subprocess.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/utils/__pycache__/temp_dir.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/utils/__pycache__/unpacking.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/utils/__pycache__/urls.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/utils/__pycache__/virtualenv.cpython-314.pyc
+│   │           │   │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_internal/utils/__pycache__/wheel.cpython-314.pyc
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/utils/_jaraco_text.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/utils/_log.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/utils/appdirs.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/utils/compat.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/utils/compatibility_tags.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/utils/datetime.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/utils/deprecation.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/utils/direct_url_helpers.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/utils/egg_link.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/utils/entrypoints.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/utils/filesystem.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/utils/filetypes.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/utils/glibc.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/utils/hashes.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/utils/logging.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/utils/misc.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/utils/packaging.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/utils/pylock.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/utils/retry.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/utils/subprocess.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/utils/temp_dir.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/utils/unpacking.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/utils/urls.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/utils/virtualenv.py
+│   │           │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_internal/utils/wheel.py
+│   │           │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/vcs
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/vcs/__init__.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/vcs/__pycache__
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/vcs/__pycache__/__init__.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/vcs/__pycache__/bazaar.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/vcs/__pycache__/git.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/vcs/__pycache__/mercurial.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/vcs/__pycache__/subversion.cpython-314.pyc
+│   │           │   │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_internal/vcs/__pycache__/versioncontrol.cpython-314.pyc
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/vcs/bazaar.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/vcs/git.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/vcs/mercurial.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_internal/vcs/subversion.py
+│   │           │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_internal/vcs/versioncontrol.py
+│   │           │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_internal/wheel_builder.py
+│   │           │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor
+│   │           │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/README.rst
+│   │           │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/__init__.py
+│   │           │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/__pycache__
+│   │           │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/__pycache__/__init__.cpython-314.pyc
+│   │           │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/cachecontrol
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/cachecontrol/LICENSE.txt
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/cachecontrol/__init__.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/cachecontrol/__pycache__
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/cachecontrol/__pycache__/__init__.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/cachecontrol/__pycache__/_cmd.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/cachecontrol/__pycache__/adapter.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/cachecontrol/__pycache__/cache.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/cachecontrol/__pycache__/controller.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/cachecontrol/__pycache__/filewrapper.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/cachecontrol/__pycache__/heuristics.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/cachecontrol/__pycache__/serialize.cpython-314.pyc
+│   │           │   │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/cachecontrol/__pycache__/wrapper.cpython-314.pyc
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/cachecontrol/_cmd.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/cachecontrol/adapter.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/cachecontrol/cache.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/cachecontrol/caches
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/cachecontrol/caches/__init__.py
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/cachecontrol/caches/__pycache__
+│   │           │   │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/cachecontrol/caches/__pycache__/__init__.cpython-314.pyc
+│   │           │   │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/cachecontrol/caches/__pycache__/file_cache.cpython-314.pyc
+│   │           │   │   │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/cachecontrol/caches/__pycache__/redis_cache.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/cachecontrol/caches/file_cache.py
+│   │           │   │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/cachecontrol/caches/redis_cache.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/cachecontrol/controller.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/cachecontrol/filewrapper.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/cachecontrol/heuristics.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/cachecontrol/py.typed
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/cachecontrol/serialize.py
+│   │           │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/cachecontrol/wrapper.py
+│   │           │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/certifi
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/certifi/LICENSE
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/certifi/__init__.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/certifi/__main__.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/certifi/__pycache__
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/certifi/__pycache__/__init__.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/certifi/__pycache__/__main__.cpython-314.pyc
+│   │           │   │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/certifi/__pycache__/core.cpython-314.pyc
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/certifi/cacert.pem
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/certifi/core.py
+│   │           │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/certifi/py.typed
+│   │           │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/dependency_groups
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/dependency_groups/LICENSE.txt
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/dependency_groups/__init__.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/dependency_groups/__main__.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/dependency_groups/__pycache__
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/dependency_groups/__pycache__/__init__.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/dependency_groups/__pycache__/__main__.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/dependency_groups/__pycache__/_implementation.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/dependency_groups/__pycache__/_lint_dependency_groups.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/dependency_groups/__pycache__/_pip_wrapper.cpython-314.pyc
+│   │           │   │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/dependency_groups/__pycache__/_toml_compat.cpython-314.pyc
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/dependency_groups/_implementation.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/dependency_groups/_lint_dependency_groups.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/dependency_groups/_pip_wrapper.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/dependency_groups/_toml_compat.py
+│   │           │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/dependency_groups/py.typed
+│   │           │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/distlib
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/distlib/LICENSE.txt
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/distlib/__init__.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/distlib/__pycache__
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/distlib/__pycache__/__init__.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/distlib/__pycache__/compat.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/distlib/__pycache__/resources.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/distlib/__pycache__/scripts.cpython-314.pyc
+│   │           │   │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/distlib/__pycache__/util.cpython-314.pyc
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/distlib/compat.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/distlib/resources.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/distlib/scripts.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/distlib/t32.exe
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/distlib/t64-arm.exe
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/distlib/t64.exe
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/distlib/util.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/distlib/w32.exe
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/distlib/w64-arm.exe
+│   │           │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/distlib/w64.exe
+│   │           │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/distro
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/distro/LICENSE
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/distro/__init__.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/distro/__main__.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/distro/__pycache__
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/distro/__pycache__/__init__.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/distro/__pycache__/__main__.cpython-314.pyc
+│   │           │   │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/distro/__pycache__/distro.cpython-314.pyc
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/distro/distro.py
+│   │           │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/distro/py.typed
+│   │           │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/idna
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/idna/LICENSE.md
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/idna/__init__.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/idna/__pycache__
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/idna/__pycache__/__init__.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/idna/__pycache__/codec.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/idna/__pycache__/compat.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/idna/__pycache__/core.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/idna/__pycache__/idnadata.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/idna/__pycache__/intranges.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/idna/__pycache__/package_data.cpython-314.pyc
+│   │           │   │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/idna/__pycache__/uts46data.cpython-314.pyc
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/idna/codec.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/idna/compat.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/idna/core.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/idna/idnadata.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/idna/intranges.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/idna/package_data.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/idna/py.typed
+│   │           │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/idna/uts46data.py
+│   │           │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/msgpack
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/msgpack/COPYING
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/msgpack/__init__.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/msgpack/__pycache__
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/msgpack/__pycache__/__init__.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/msgpack/__pycache__/exceptions.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/msgpack/__pycache__/ext.cpython-314.pyc
+│   │           │   │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/msgpack/__pycache__/fallback.cpython-314.pyc
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/msgpack/exceptions.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/msgpack/ext.py
+│   │           │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/msgpack/fallback.py
+│   │           │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/packaging
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/packaging/LICENSE
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/packaging/LICENSE.APACHE
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/packaging/LICENSE.BSD
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/packaging/__init__.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/packaging/__pycache__
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/packaging/__pycache__/__init__.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/packaging/__pycache__/_elffile.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/packaging/__pycache__/_manylinux.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/packaging/__pycache__/_musllinux.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/packaging/__pycache__/_parser.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/packaging/__pycache__/_structures.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/packaging/__pycache__/_tokenizer.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/packaging/__pycache__/markers.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/packaging/__pycache__/metadata.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/packaging/__pycache__/pylock.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/packaging/__pycache__/requirements.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/packaging/__pycache__/specifiers.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/packaging/__pycache__/tags.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/packaging/__pycache__/utils.cpython-314.pyc
+│   │           │   │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/packaging/__pycache__/version.cpython-314.pyc
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/packaging/_elffile.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/packaging/_manylinux.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/packaging/_musllinux.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/packaging/_parser.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/packaging/_structures.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/packaging/_tokenizer.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/packaging/licenses
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/packaging/licenses/__init__.py
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/packaging/licenses/__pycache__
+│   │           │   │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/packaging/licenses/__pycache__/__init__.cpython-314.pyc
+│   │           │   │   │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/packaging/licenses/__pycache__/_spdx.cpython-314.pyc
+│   │           │   │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/packaging/licenses/_spdx.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/packaging/markers.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/packaging/metadata.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/packaging/py.typed
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/packaging/pylock.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/packaging/requirements.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/packaging/specifiers.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/packaging/tags.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/packaging/utils.py
+│   │           │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/packaging/version.py
+│   │           │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/pkg_resources
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/pkg_resources/LICENSE
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/pkg_resources/__init__.py
+│   │           │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/pkg_resources/__pycache__
+│   │           │   │   │       └── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/pkg_resources/__pycache__/__init__.cpython-314.pyc
+│   │           │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/platformdirs
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/platformdirs/LICENSE
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/platformdirs/__init__.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/platformdirs/__main__.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/platformdirs/__pycache__
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/platformdirs/__pycache__/__init__.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/platformdirs/__pycache__/__main__.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/platformdirs/__pycache__/android.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/platformdirs/__pycache__/api.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/platformdirs/__pycache__/macos.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/platformdirs/__pycache__/unix.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/platformdirs/__pycache__/version.cpython-314.pyc
+│   │           │   │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/platformdirs/__pycache__/windows.cpython-314.pyc
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/platformdirs/android.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/platformdirs/api.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/platformdirs/macos.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/platformdirs/py.typed
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/platformdirs/unix.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/platformdirs/version.py
+│   │           │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/platformdirs/windows.py
+│   │           │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/pygments
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/pygments/LICENSE
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/pygments/__init__.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/pygments/__main__.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/pygments/__pycache__
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/pygments/__pycache__/__init__.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/pygments/__pycache__/__main__.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/pygments/__pycache__/console.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/pygments/__pycache__/filter.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/pygments/__pycache__/formatter.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/pygments/__pycache__/lexer.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/pygments/__pycache__/modeline.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/pygments/__pycache__/plugin.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/pygments/__pycache__/regexopt.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/pygments/__pycache__/scanner.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/pygments/__pycache__/sphinxext.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/pygments/__pycache__/style.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/pygments/__pycache__/token.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/pygments/__pycache__/unistring.cpython-314.pyc
+│   │           │   │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/pygments/__pycache__/util.cpython-314.pyc
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/pygments/console.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/pygments/filter.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/pygments/filters
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/pygments/filters/__init__.py
+│   │           │   │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/pygments/filters/__pycache__
+│   │           │   │   │   │       └── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/pygments/filters/__pycache__/__init__.cpython-314.pyc
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/pygments/formatter.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/pygments/formatters
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/pygments/formatters/__init__.py
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/pygments/formatters/__pycache__
+│   │           │   │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/pygments/formatters/__pycache__/__init__.cpython-314.pyc
+│   │           │   │   │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/pygments/formatters/__pycache__/_mapping.cpython-314.pyc
+│   │           │   │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/pygments/formatters/_mapping.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/pygments/lexer.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/pygments/lexers
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/pygments/lexers/__init__.py
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/pygments/lexers/__pycache__
+│   │           │   │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/pygments/lexers/__pycache__/__init__.cpython-314.pyc
+│   │           │   │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/pygments/lexers/__pycache__/_mapping.cpython-314.pyc
+│   │           │   │   │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/pygments/lexers/__pycache__/python.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/pygments/lexers/_mapping.py
+│   │           │   │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/pygments/lexers/python.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/pygments/modeline.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/pygments/plugin.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/pygments/regexopt.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/pygments/scanner.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/pygments/sphinxext.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/pygments/style.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/pygments/styles
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/pygments/styles/__init__.py
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/pygments/styles/__pycache__
+│   │           │   │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/pygments/styles/__pycache__/__init__.cpython-314.pyc
+│   │           │   │   │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/pygments/styles/__pycache__/_mapping.cpython-314.pyc
+│   │           │   │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/pygments/styles/_mapping.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/pygments/token.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/pygments/unistring.py
+│   │           │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/pygments/util.py
+│   │           │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/pyproject_hooks
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/pyproject_hooks/LICENSE
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/pyproject_hooks/__init__.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/pyproject_hooks/__pycache__
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/pyproject_hooks/__pycache__/__init__.cpython-314.pyc
+│   │           │   │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/pyproject_hooks/__pycache__/_impl.cpython-314.pyc
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/pyproject_hooks/_impl.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/pyproject_hooks/_in_process
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/pyproject_hooks/_in_process/__init__.py
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/pyproject_hooks/_in_process/__pycache__
+│   │           │   │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/pyproject_hooks/_in_process/__pycache__/__init__.cpython-314.pyc
+│   │           │   │   │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/pyproject_hooks/_in_process/__pycache__/_in_process.cpython-314.pyc
+│   │           │   │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/pyproject_hooks/_in_process/_in_process.py
+│   │           │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/pyproject_hooks/py.typed
+│   │           │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/requests
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/requests/LICENSE
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/requests/__init__.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/requests/__pycache__
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/requests/__pycache__/__init__.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/requests/__pycache__/__version__.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/requests/__pycache__/_internal_utils.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/requests/__pycache__/adapters.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/requests/__pycache__/api.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/requests/__pycache__/auth.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/requests/__pycache__/certs.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/requests/__pycache__/compat.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/requests/__pycache__/cookies.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/requests/__pycache__/exceptions.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/requests/__pycache__/help.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/requests/__pycache__/hooks.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/requests/__pycache__/models.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/requests/__pycache__/packages.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/requests/__pycache__/sessions.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/requests/__pycache__/status_codes.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/requests/__pycache__/structures.cpython-314.pyc
+│   │           │   │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/requests/__pycache__/utils.cpython-314.pyc
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/requests/__version__.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/requests/_internal_utils.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/requests/adapters.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/requests/api.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/requests/auth.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/requests/certs.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/requests/compat.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/requests/cookies.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/requests/exceptions.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/requests/help.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/requests/hooks.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/requests/models.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/requests/packages.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/requests/sessions.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/requests/status_codes.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/requests/structures.py
+│   │           │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/requests/utils.py
+│   │           │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/resolvelib
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/resolvelib/LICENSE
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/resolvelib/__init__.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/resolvelib/__pycache__
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/resolvelib/__pycache__/__init__.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/resolvelib/__pycache__/providers.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/resolvelib/__pycache__/reporters.cpython-314.pyc
+│   │           │   │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/resolvelib/__pycache__/structs.cpython-314.pyc
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/resolvelib/providers.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/resolvelib/py.typed
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/resolvelib/reporters.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/resolvelib/resolvers
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/resolvelib/resolvers/__init__.py
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/resolvelib/resolvers/__pycache__
+│   │           │   │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/resolvelib/resolvers/__pycache__/__init__.cpython-314.pyc
+│   │           │   │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/resolvelib/resolvers/__pycache__/abstract.cpython-314.pyc
+│   │           │   │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/resolvelib/resolvers/__pycache__/criterion.cpython-314.pyc
+│   │           │   │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/resolvelib/resolvers/__pycache__/exceptions.cpython-314.pyc
+│   │           │   │   │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/resolvelib/resolvers/__pycache__/resolution.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/resolvelib/resolvers/abstract.py
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/resolvelib/resolvers/criterion.py
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/resolvelib/resolvers/exceptions.py
+│   │           │   │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/resolvelib/resolvers/resolution.py
+│   │           │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/resolvelib/structs.py
+│   │           │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/LICENSE
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/__init__.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/__main__.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/__pycache__
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/__pycache__/__init__.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/__pycache__/__main__.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/__pycache__/_cell_widths.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/__pycache__/_emoji_codes.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/__pycache__/_emoji_replace.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/__pycache__/_export_format.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/__pycache__/_extension.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/__pycache__/_fileno.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/__pycache__/_inspect.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/__pycache__/_log_render.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/__pycache__/_loop.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/__pycache__/_null_file.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/__pycache__/_palettes.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/__pycache__/_pick.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/__pycache__/_ratio.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/__pycache__/_spinners.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/__pycache__/_stack.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/__pycache__/_timer.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/__pycache__/_win32_console.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/__pycache__/_windows.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/__pycache__/_windows_renderer.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/__pycache__/_wrap.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/__pycache__/abc.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/__pycache__/align.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/__pycache__/ansi.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/__pycache__/bar.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/__pycache__/box.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/__pycache__/cells.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/__pycache__/color.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/__pycache__/color_triplet.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/__pycache__/columns.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/__pycache__/console.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/__pycache__/constrain.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/__pycache__/containers.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/__pycache__/control.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/__pycache__/default_styles.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/__pycache__/diagnose.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/__pycache__/emoji.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/__pycache__/errors.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/__pycache__/file_proxy.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/__pycache__/filesize.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/__pycache__/highlighter.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/__pycache__/json.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/__pycache__/jupyter.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/__pycache__/layout.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/__pycache__/live.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/__pycache__/live_render.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/__pycache__/logging.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/__pycache__/markup.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/__pycache__/measure.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/__pycache__/padding.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/__pycache__/pager.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/__pycache__/palette.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/__pycache__/panel.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/__pycache__/pretty.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/__pycache__/progress.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/__pycache__/progress_bar.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/__pycache__/prompt.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/__pycache__/protocol.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/__pycache__/region.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/__pycache__/repr.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/__pycache__/rule.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/__pycache__/scope.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/__pycache__/screen.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/__pycache__/segment.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/__pycache__/spinner.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/__pycache__/status.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/__pycache__/style.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/__pycache__/styled.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/__pycache__/syntax.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/__pycache__/table.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/__pycache__/terminal_theme.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/__pycache__/text.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/__pycache__/theme.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/__pycache__/themes.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/__pycache__/traceback.cpython-314.pyc
+│   │           │   │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/__pycache__/tree.cpython-314.pyc
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/_cell_widths.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/_emoji_codes.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/_emoji_replace.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/_export_format.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/_extension.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/_fileno.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/_inspect.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/_log_render.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/_loop.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/_null_file.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/_palettes.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/_pick.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/_ratio.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/_spinners.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/_stack.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/_timer.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/_win32_console.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/_windows.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/_windows_renderer.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/_wrap.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/abc.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/align.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/ansi.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/bar.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/box.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/cells.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/color.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/color_triplet.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/columns.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/console.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/constrain.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/containers.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/control.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/default_styles.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/diagnose.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/emoji.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/errors.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/file_proxy.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/filesize.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/highlighter.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/json.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/jupyter.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/layout.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/live.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/live_render.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/logging.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/markup.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/measure.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/padding.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/pager.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/palette.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/panel.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/pretty.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/progress.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/progress_bar.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/prompt.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/protocol.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/py.typed
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/region.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/repr.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/rule.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/scope.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/screen.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/segment.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/spinner.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/status.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/style.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/styled.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/syntax.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/table.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/terminal_theme.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/text.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/theme.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/themes.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/traceback.py
+│   │           │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/rich/tree.py
+│   │           │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/tomli
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/tomli/LICENSE
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/tomli/__init__.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/tomli/__pycache__
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/tomli/__pycache__/__init__.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/tomli/__pycache__/_parser.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/tomli/__pycache__/_re.cpython-314.pyc
+│   │           │   │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/tomli/__pycache__/_types.cpython-314.pyc
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/tomli/_parser.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/tomli/_re.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/tomli/_types.py
+│   │           │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/tomli/py.typed
+│   │           │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/tomli_w
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/tomli_w/LICENSE
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/tomli_w/__init__.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/tomli_w/__pycache__
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/tomli_w/__pycache__/__init__.cpython-314.pyc
+│   │           │   │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/tomli_w/__pycache__/_writer.cpython-314.pyc
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/tomli_w/_writer.py
+│   │           │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/tomli_w/py.typed
+│   │           │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/truststore
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/truststore/LICENSE
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/truststore/__init__.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/truststore/__pycache__
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/truststore/__pycache__/__init__.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/truststore/__pycache__/_api.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/truststore/__pycache__/_macos.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/truststore/__pycache__/_openssl.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/truststore/__pycache__/_ssl_constants.cpython-314.pyc
+│   │           │   │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/truststore/__pycache__/_windows.cpython-314.pyc
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/truststore/_api.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/truststore/_macos.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/truststore/_openssl.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/truststore/_ssl_constants.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/truststore/_windows.py
+│   │           │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/truststore/py.typed
+│   │           │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/LICENSE.txt
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/__init__.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/__pycache__
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/__pycache__/__init__.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/__pycache__/_collections.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/__pycache__/_version.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/__pycache__/connection.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/__pycache__/connectionpool.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/__pycache__/exceptions.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/__pycache__/fields.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/__pycache__/filepost.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/__pycache__/poolmanager.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/__pycache__/request.cpython-314.pyc
+│   │           │   │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/__pycache__/response.cpython-314.pyc
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/_collections.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/_version.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/connection.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/connectionpool.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/contrib
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/contrib/__init__.py
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/contrib/__pycache__
+│   │           │   │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/contrib/__pycache__/__init__.cpython-314.pyc
+│   │           │   │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/contrib/__pycache__/_appengine_environ.cpython-314.pyc
+│   │           │   │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/contrib/__pycache__/appengine.cpython-314.pyc
+│   │           │   │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/contrib/__pycache__/ntlmpool.cpython-314.pyc
+│   │           │   │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/contrib/__pycache__/pyopenssl.cpython-314.pyc
+│   │           │   │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/contrib/__pycache__/securetransport.cpython-314.pyc
+│   │           │   │   │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/contrib/__pycache__/socks.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/contrib/_appengine_environ.py
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/contrib/_securetransport
+│   │           │   │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/contrib/_securetransport/__init__.py
+│   │           │   │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/contrib/_securetransport/__pycache__
+│   │           │   │   │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/contrib/_securetransport/__pycache__/__init__.cpython-314.pyc
+│   │           │   │   │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/contrib/_securetransport/__pycache__/bindings.cpython-314.pyc
+│   │           │   │   │   │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/contrib/_securetransport/__pycache__/low_level.cpython-314.pyc
+│   │           │   │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/contrib/_securetransport/bindings.py
+│   │           │   │   │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/contrib/_securetransport/low_level.py
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/contrib/appengine.py
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/contrib/ntlmpool.py
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/contrib/pyopenssl.py
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/contrib/securetransport.py
+│   │           │   │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/contrib/socks.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/exceptions.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/fields.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/filepost.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/packages
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/packages/__init__.py
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/packages/__pycache__
+│   │           │   │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/packages/__pycache__/__init__.cpython-314.pyc
+│   │           │   │   │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/packages/__pycache__/six.cpython-314.pyc
+│   │           │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/packages/backports
+│   │           │   │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/packages/backports/__init__.py
+│   │           │   │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/packages/backports/__pycache__
+│   │           │   │   │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/packages/backports/__pycache__/__init__.cpython-314.pyc
+│   │           │   │   │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/packages/backports/__pycache__/makefile.cpython-314.pyc
+│   │           │   │   │   │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/packages/backports/__pycache__/weakref_finalize.cpython-314.pyc
+│   │           │   │   │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/packages/backports/makefile.py
+│   │           │   │   │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/packages/backports/weakref_finalize.py
+│   │           │   │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/packages/six.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/poolmanager.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/request.py
+│   │           │   │   │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/response.py
+│   │           │   │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/util
+│   │           │   │   │       ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/util/__init__.py
+│   │           │   │   │       ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/util/__pycache__
+│   │           │   │   │       │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/util/__pycache__/__init__.cpython-314.pyc
+│   │           │   │   │       │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/util/__pycache__/connection.cpython-314.pyc
+│   │           │   │   │       │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/util/__pycache__/proxy.cpython-314.pyc
+│   │           │   │   │       │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/util/__pycache__/queue.cpython-314.pyc
+│   │           │   │   │       │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/util/__pycache__/request.cpython-314.pyc
+│   │           │   │   │       │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/util/__pycache__/response.cpython-314.pyc
+│   │           │   │   │       │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/util/__pycache__/retry.cpython-314.pyc
+│   │           │   │   │       │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/util/__pycache__/ssl_.cpython-314.pyc
+│   │           │   │   │       │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/util/__pycache__/ssl_match_hostname.cpython-314.pyc
+│   │           │   │   │       │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/util/__pycache__/ssltransport.cpython-314.pyc
+│   │           │   │   │       │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/util/__pycache__/timeout.cpython-314.pyc
+│   │           │   │   │       │   ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/util/__pycache__/url.cpython-314.pyc
+│   │           │   │   │       │   └── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/util/__pycache__/wait.cpython-314.pyc
+│   │           │   │   │       ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/util/connection.py
+│   │           │   │   │       ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/util/proxy.py
+│   │           │   │   │       ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/util/queue.py
+│   │           │   │   │       ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/util/request.py
+│   │           │   │   │       ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/util/response.py
+│   │           │   │   │       ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/util/retry.py
+│   │           │   │   │       ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/util/ssl_.py
+│   │           │   │   │       ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/util/ssl_match_hostname.py
+│   │           │   │   │       ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/util/ssltransport.py
+│   │           │   │   │       ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/util/timeout.py
+│   │           │   │   │       ├── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/util/url.py
+│   │           │   │   │       └── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/urllib3/util/wait.py
+│   │           │   │   └── ./verillm-env/lib/python3.14/site-packages/pip/_vendor/vendor.txt
+│   │           │   └── ./verillm-env/lib/python3.14/site-packages/pip/py.typed
+│   │           └── ./verillm-env/lib/python3.14/site-packages/pip-26.0.1.dist-info
+│   │               ├── ./verillm-env/lib/python3.14/site-packages/pip-26.0.1.dist-info/INSTALLER
+│   │               ├── ./verillm-env/lib/python3.14/site-packages/pip-26.0.1.dist-info/METADATA
+│   │               ├── ./verillm-env/lib/python3.14/site-packages/pip-26.0.1.dist-info/RECORD
+│   │               ├── ./verillm-env/lib/python3.14/site-packages/pip-26.0.1.dist-info/REQUESTED
+│   │               ├── ./verillm-env/lib/python3.14/site-packages/pip-26.0.1.dist-info/WHEEL
+│   │               ├── ./verillm-env/lib/python3.14/site-packages/pip-26.0.1.dist-info/entry_points.txt
+│   │               └── ./verillm-env/lib/python3.14/site-packages/pip-26.0.1.dist-info/licenses
+│   │                   ├── ./verillm-env/lib/python3.14/site-packages/pip-26.0.1.dist-info/licenses/AUTHORS.txt
+│   │                   ├── ./verillm-env/lib/python3.14/site-packages/pip-26.0.1.dist-info/licenses/LICENSE.txt
+│   │                   └── ./verillm-env/lib/python3.14/site-packages/pip-26.0.1.dist-info/licenses/src
+│   │                       └── ./verillm-env/lib/python3.14/site-packages/pip-26.0.1.dist-info/licenses/src/pip
+│   │                           └── ./verillm-env/lib/python3.14/site-packages/pip-26.0.1.dist-info/licenses/src/pip/_vendor
+│   │                               ├── ./verillm-env/lib/python3.14/site-packages/pip-26.0.1.dist-info/licenses/src/pip/_vendor/cachecontrol
+│   │                               │   └── ./verillm-env/lib/python3.14/site-packages/pip-26.0.1.dist-info/licenses/src/pip/_vendor/cachecontrol/LICENSE.txt
+│   │                               ├── ./verillm-env/lib/python3.14/site-packages/pip-26.0.1.dist-info/licenses/src/pip/_vendor/certifi
+│   │                               │   └── ./verillm-env/lib/python3.14/site-packages/pip-26.0.1.dist-info/licenses/src/pip/_vendor/certifi/LICENSE
+│   │                               ├── ./verillm-env/lib/python3.14/site-packages/pip-26.0.1.dist-info/licenses/src/pip/_vendor/dependency_groups
+│   │                               │   └── ./verillm-env/lib/python3.14/site-packages/pip-26.0.1.dist-info/licenses/src/pip/_vendor/dependency_groups/LICENSE.txt
+│   │                               ├── ./verillm-env/lib/python3.14/site-packages/pip-26.0.1.dist-info/licenses/src/pip/_vendor/distlib
+│   │                               │   └── ./verillm-env/lib/python3.14/site-packages/pip-26.0.1.dist-info/licenses/src/pip/_vendor/distlib/LICENSE.txt
+│   │                               ├── ./verillm-env/lib/python3.14/site-packages/pip-26.0.1.dist-info/licenses/src/pip/_vendor/distro
+│   │                               │   └── ./verillm-env/lib/python3.14/site-packages/pip-26.0.1.dist-info/licenses/src/pip/_vendor/distro/LICENSE
+│   │                               ├── ./verillm-env/lib/python3.14/site-packages/pip-26.0.1.dist-info/licenses/src/pip/_vendor/idna
+│   │                               │   └── ./verillm-env/lib/python3.14/site-packages/pip-26.0.1.dist-info/licenses/src/pip/_vendor/idna/LICENSE.md
+│   │                               ├── ./verillm-env/lib/python3.14/site-packages/pip-26.0.1.dist-info/licenses/src/pip/_vendor/msgpack
+│   │                               │   └── ./verillm-env/lib/python3.14/site-packages/pip-26.0.1.dist-info/licenses/src/pip/_vendor/msgpack/COPYING
+│   │                               ├── ./verillm-env/lib/python3.14/site-packages/pip-26.0.1.dist-info/licenses/src/pip/_vendor/packaging
+│   │                               │   ├── ./verillm-env/lib/python3.14/site-packages/pip-26.0.1.dist-info/licenses/src/pip/_vendor/packaging/LICENSE
+│   │                               │   ├── ./verillm-env/lib/python3.14/site-packages/pip-26.0.1.dist-info/licenses/src/pip/_vendor/packaging/LICENSE.APACHE
+│   │                               │   └── ./verillm-env/lib/python3.14/site-packages/pip-26.0.1.dist-info/licenses/src/pip/_vendor/packaging/LICENSE.BSD
+│   │                               ├── ./verillm-env/lib/python3.14/site-packages/pip-26.0.1.dist-info/licenses/src/pip/_vendor/pkg_resources
+│   │                               │   └── ./verillm-env/lib/python3.14/site-packages/pip-26.0.1.dist-info/licenses/src/pip/_vendor/pkg_resources/LICENSE
+│   │                               ├── ./verillm-env/lib/python3.14/site-packages/pip-26.0.1.dist-info/licenses/src/pip/_vendor/platformdirs
+│   │                               │   └── ./verillm-env/lib/python3.14/site-packages/pip-26.0.1.dist-info/licenses/src/pip/_vendor/platformdirs/LICENSE
+│   │                               ├── ./verillm-env/lib/python3.14/site-packages/pip-26.0.1.dist-info/licenses/src/pip/_vendor/pygments
+│   │                               │   └── ./verillm-env/lib/python3.14/site-packages/pip-26.0.1.dist-info/licenses/src/pip/_vendor/pygments/LICENSE
+│   │                               ├── ./verillm-env/lib/python3.14/site-packages/pip-26.0.1.dist-info/licenses/src/pip/_vendor/pyproject_hooks
+│   │                               │   └── ./verillm-env/lib/python3.14/site-packages/pip-26.0.1.dist-info/licenses/src/pip/_vendor/pyproject_hooks/LICENSE
+│   │                               ├── ./verillm-env/lib/python3.14/site-packages/pip-26.0.1.dist-info/licenses/src/pip/_vendor/requests
+│   │                               │   └── ./verillm-env/lib/python3.14/site-packages/pip-26.0.1.dist-info/licenses/src/pip/_vendor/requests/LICENSE
+│   │                               ├── ./verillm-env/lib/python3.14/site-packages/pip-26.0.1.dist-info/licenses/src/pip/_vendor/resolvelib
+│   │                               │   └── ./verillm-env/lib/python3.14/site-packages/pip-26.0.1.dist-info/licenses/src/pip/_vendor/resolvelib/LICENSE
+│   │                               ├── ./verillm-env/lib/python3.14/site-packages/pip-26.0.1.dist-info/licenses/src/pip/_vendor/rich
+│   │                               │   └── ./verillm-env/lib/python3.14/site-packages/pip-26.0.1.dist-info/licenses/src/pip/_vendor/rich/LICENSE
+│   │                               ├── ./verillm-env/lib/python3.14/site-packages/pip-26.0.1.dist-info/licenses/src/pip/_vendor/tomli
+│   │                               │   └── ./verillm-env/lib/python3.14/site-packages/pip-26.0.1.dist-info/licenses/src/pip/_vendor/tomli/LICENSE
+│   │                               ├── ./verillm-env/lib/python3.14/site-packages/pip-26.0.1.dist-info/licenses/src/pip/_vendor/tomli_w
+│   │                               │   └── ./verillm-env/lib/python3.14/site-packages/pip-26.0.1.dist-info/licenses/src/pip/_vendor/tomli_w/LICENSE
+│   │                               ├── ./verillm-env/lib/python3.14/site-packages/pip-26.0.1.dist-info/licenses/src/pip/_vendor/truststore
+│   │                               │   └── ./verillm-env/lib/python3.14/site-packages/pip-26.0.1.dist-info/licenses/src/pip/_vendor/truststore/LICENSE
+│   │                               └── ./verillm-env/lib/python3.14/site-packages/pip-26.0.1.dist-info/licenses/src/pip/_vendor/urllib3
+│   │                                   └── ./verillm-env/lib/python3.14/site-packages/pip-26.0.1.dist-info/licenses/src/pip/_vendor/urllib3/LICENSE.txt
+│   └── ./verillm-env/pyvenv.cfg
+└── ./verillm_mock_data
+    ├── ./verillm_mock_data/audit_export.json
+    ├── ./verillm_mock_data/model_lineage.json
+    ├── ./verillm_mock_data/privacy_budget.json
+    ├── ./verillm_mock_data/receipt_explorer.json
+    └── ./verillm_mock_data/theme.json

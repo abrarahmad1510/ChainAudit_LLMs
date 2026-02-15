@@ -1,0 +1,33 @@
+{
+  "title": "Model Usage",
+  "date_range": {
+    "start_time": "2026-02-01",
+    "end_time": "2026-02-14"
+  },
+  "x_axis": [
+    "gpt-3.5-turbo",
+    "llama-2-7b",
+    "claude-v2"
+  ],
+  "y_axis": {
+    "min": 0,
+    "max": 100,
+    "ticks": [
+      0,
+      25,
+      50,
+      75,
+      100
+    ]
+  },
+  "values": {
+    "gpt-3.5-turbo": 75,
+    "llama-2-7b": 45,
+    "claude-v2": 90
+  },
+  "colors": {
+    "gpt-3.5-turbo": "#64b5f6",
+    "llama-2-7b": "#ffb74d",
+    "claude-v2": "#64b5f6"
+  }
+}

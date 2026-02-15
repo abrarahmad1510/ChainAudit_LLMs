@@ -1,0 +1,93 @@
+{
+  "filters": {
+    "model_id": "gpt-3.5-turbo",
+    "start_time": "2026-02-01",
+    "end_time": "2026-02-14"
+  },
+  "rows": [
+    {
+      "leaf_hash": "672a42f210eb2b800283",
+      "index": 1,
+      "root_hash": "0193ce48596bf6a40201",
+      "timestamp": "2026-02-14 10:30:00",
+      "action": "View"
+    },
+    {
+      "leaf_hash": "eee17e1918d34bd5f6da",
+      "index": 2,
+      "root_hash": "f0db11f16b72816e3b55",
+      "timestamp": "2026-02-14 10:31:00",
+      "action": "View"
+    },
+    {
+      "leaf_hash": "f73a2f55ed635a39a888",
+      "index": 3,
+      "root_hash": "10d9a6865c9cbf9c61bd",
+      "timestamp": "2026-02-14 10:32:00",
+      "action": "View"
+    },
+    {
+      "leaf_hash": "8e7f15e1f81518df3380",
+      "index": 4,
+      "root_hash": "d53aa58e3f4e55a23615",
+      "timestamp": "2026-02-14 10:33:00",
+      "action": "View"
+    },
+    {
+      "leaf_hash": "0cc8e06d9e40edd6ab98",
+      "index": 5,
+      "root_hash": "02a8621e664e50088887",
+      "timestamp": "2026-02-14 10:34:00",
+      "action": "View"
+    },
+    {
+      "leaf_hash": "c1c8b0498220d3c5fb03",
+      "index": 6,
+      "root_hash": "df2fa635d5c9de318698",
+      "timestamp": "2026-02-14 10:35:00",
+      "action": "View"
+    },
+    {
+      "leaf_hash": "2adec82014a81b50c749",
+      "index": 7,
+      "root_hash": "ba781b5eefa4023b09e8",
+      "timestamp": "2026-02-14 10:36:00",
+      "action": "View"
+    },
+    {
+      "leaf_hash": "3467071133d554cad191",
+      "index": 8,
+      "root_hash": "cb3847afa129aacd8121",
+      "timestamp": "2026-02-14 10:37:00",
+      "action": "View"
+    },
+    {
+      "leaf_hash": "124c871fef89ab22a5ae",
+      "index": 9,
+      "root_hash": "60470ad6cdd2444d4e6b",
+      "timestamp": "2026-02-14 10:38:00",
+      "action": "View"
+    },
+    {
+      "leaf_hash": "db2b84e9b4394462a314",
+      "index": 10,
+      "root_hash": "33d913dafd70629c6667",
+      "timestamp": "2026-02-14 10:39:00",
+      "action": "View"
+    },
+    {
+      "leaf_hash": "0cb26d1393ba9b853434",
+      "index": 11,
+      "root_hash": "b668a45fb9b178e98fc6",
+      "timestamp": "2026-02-14 10:40:00",
+      "action": "View"
+    },
+    {
+      "leaf_hash": "e24035da25aa5b3b17f2",
+      "index": 12,
+      "root_hash": "89461ddc594c1b9db594",
+      "timestamp": "2026-02-14 10:41:00",
+      "action": "View"
+    }
+  ]
+}

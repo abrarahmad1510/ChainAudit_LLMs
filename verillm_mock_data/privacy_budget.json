@@ -1,0 +1,41 @@
+[
+  {
+    "model": "gpt-3.5-turbo",
+    "epsilon": {
+      "remaining": 8.2,
+      "total": 10,
+      "progress": 0.82
+    },
+    "delta": {
+      "remaining": 9.5e-06,
+      "total": 1e-05,
+      "progress": 0.95
+    }
+  },
+  {
+    "model": "llama-2-7b",
+    "epsilon": {
+      "remaining": 6.5,
+      "total": 10,
+      "progress": 0.65
+    },
+    "delta": {
+      "remaining": 8e-06,
+      "total": 1e-05,
+      "progress": 0.8
+    }
+  },
+  {
+    "model": "claude-v2",
+    "epsilon": {
+      "remaining": 9.1,
+      "total": 10,
+      "progress": 0.91
+    },
+    "delta": {
+      "remaining": 9.8e-06,
+      "total": 1e-05,
+      "progress": 0.98
+    }
+  }
+]

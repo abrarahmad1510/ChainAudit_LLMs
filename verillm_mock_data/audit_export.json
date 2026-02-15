@@ -1,0 +1,35 @@
+{
+  "stepper": [
+    "Select Models",
+    "Select Date Range",
+    "Confirm and Export"
+  ],
+  "active_step": 1,
+  "models": [
+    {
+      "name": "gpt-3.5-turbo",
+      "checked": true
+    },
+    {
+      "name": "llama-2-7b",
+      "checked": false
+    },
+    {
+      "name": "claude-v2",
+      "checked": true
+    },
+    {
+      "name": "mistral-7b",
+      "checked": false
+    }
+  ],
+  "buttons": {
+    "back": {
+      "enabled": false
+    },
+    "next": {
+      "enabled": true
+    }
+  },
+  "hint": "Choose one or more models to include in the export."
+}

@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package auditor;
+
+service Auditor {
+    rpc SubmitHash(stream HashSubmission) returns (stream ReceiptResponse);
+    rpc GetReceipt(ReceiptRequest) returns (ReceiptResponse);
+}
+
+message HashSubmission {
+    bytes hash = 1;
+    bytes metadata = 2;
+    string proxy_id = 3;
+    uint64 timestamp_ns = 4;
+}
+
+message ReceiptResponse {
+    bytes receipt = 1;
+    uint64 leaf_index = 2;
+}
+
+message ReceiptRequest {
+    bytes leaf_hash = 1;
+}

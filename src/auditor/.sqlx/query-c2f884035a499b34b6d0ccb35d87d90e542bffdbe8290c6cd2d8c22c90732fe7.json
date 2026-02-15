@@ -1,0 +1,52 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "\n            SELECT leaf_hash, leaf_index, root_hash, context, receipt_jwt, created_at\n            FROM receipts\n            WHERE leaf_hash = $1\n            ",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "leaf_hash",
+        "type_info": "Bytea"
+      },
+      {
+        "ordinal": 1,
+        "name": "leaf_index",
+        "type_info": "Int8"
+      },
+      {
+        "ordinal": 2,
+        "name": "root_hash",
+        "type_info": "Bytea"
+      },
+      {
+        "ordinal": 3,
+        "name": "context",
+        "type_info": "Jsonb"
+      },
+      {
+        "ordinal": 4,
+        "name": "receipt_jwt",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 5,
+        "name": "created_at",
+        "type_info": "Timestamptz"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Bytea"
+      ]
+    },
+    "nullable": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  "hash": "c2f884035a499b34b6d0ccb35d87d90e542bffdbe8290c6cd2d8c22c90732fe7"
+}

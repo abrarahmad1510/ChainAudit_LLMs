@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  llm:
+    build:
+      context: ./examples/basic
+      dockerfile: Dockerfile.mock
+    ports:
+      - "8080:8080"
+    networks:
+      - verillm-net
+
+  envoy:
+    image: envoyproxy/envoy:v1.28-latest
+    ports:
+      - "10000:10000"
+    volumes:
+      - ./build/docker/proxy/envoy.yaml:/etc/envoy/envoy.yaml
+      - ./build/docker/proxy/verillm_proxy.wasm:/etc/envoy/verillm_proxy.wasm
+    depends_on:
+      - llm
+    networks:
+      - verillm-net
+
+networks:
+  verillm-net:
+    driver: bridge

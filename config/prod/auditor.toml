@@ -1,0 +1,17 @@
+[server]
+addr = "0.0.0.0:50051"
+
+[database]
+url = "postgres://verillm:verillm@postgres:5432/verillm"
+
+[kafka]
+brokers = "kafka:9092"
+topic = "receipts"
+
+[trillian]
+log_server_addr = "http://trillian-log-server:8090"
+log_id = 1  # REPLACE WITH YOUR TREE ID
+
+[sigstore]
+fulcio_url = "https://fulcio.sigstore.dev"
+rekor_url = "https://rekor.sigstore.dev"
