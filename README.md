@@ -568,38 +568,79 @@ verillm/
 ```
 
 ---
-
 ## Performance Benchmarks
 
-### Latency Overhead
+<table>
+<tr>
+<td width="50%">
 
-| Metric | Target | Achieved |
-|--------|--------|----------|
-| Proxy Latency (p50) | < 2ms | 1.4ms |
-| Proxy Latency (p99) | < 5ms | 3.8ms |
-| Auditor Processing | < 50ms | 32ms |
-| Verification API | < 100ms | 67ms |
-| Hash Computation | < 1ms | 0.6ms |
+### Unified Performance Metrics
 
-### Throughput
+| Metric Category | Metric | Target | Achieved |
+|-----------------|--------|--------|----------|
+| **Latency** | Proxy p50 | < 2ms | ✅ 1.4ms |
+| **Latency** | Proxy p99 | < 5ms | ✅ 3.8ms |
+| **Latency** | Auditor Processing | < 50ms | ✅ 32ms |
+| **Latency** | Verification API | < 100ms | ✅ 67ms |
+| **Throughput** | Single Auditor | 10K/s | ✅ 12.5K/s |
+| **Throughput** | 4-Node Cluster | 40K/s | ✅ 48K/s |
+| **Throughput** | Kafka Ingestion | 50K/s | ✅ 55K/s |
+| **Resources** | Proxy CPU | - | 2% per core |
+| **Resources** | Proxy Memory | - | 50 MB |
+| **Resources** | Auditor CPU | - | 15% per core |
+| **Resources** | Auditor Memory | - | 512 MB |
 
-| Metric | Target | Achieved |
-|--------|--------|----------|
-| Receipts/Second (Single Auditor) | 10,000+ | 12,500 |
-| Receipts/Second (4-Node Cluster) | 40,000+ | 48,000 |
-| Concurrent Requests | 10,000+ | 11,200 |
-| Kafka Ingestion | 50,000 msgs/sec | 55,000 msgs/sec |
+</td>
+<td width="50%">
 
-### Resource Utilization
+### Performance Visualisation 
+```mermaid
+%%{init: {'theme':'base', 'themeVariables': { 'primaryColor':'#4A90E2', 'primaryTextColor':'#fff', 'primaryBorderColor':'#357ABD', 'lineColor':'#F8B229', 'secondaryColor':'#7B68EE', 'tertiaryColor':'#50C878'}}}%%
+graph TB
+    subgraph "Latency (ms)"
+        L1["Proxy p50: 1.4ms"]
+        L2["Proxy p99: 3.8ms"]
+        L3["Auditor: 32ms"]
+        L4["Verification: 67ms"]
+    end
+    
+    subgraph "Throughput (K/s)"
+        T1["Single: 12.5K"]
+        T2["Cluster: 48K"]
+        T3["Kafka: 55K"]
+    end
+    
+    subgraph "Resource Usage"
+        R1["Proxy CPU: 2%"]
+        R2["Proxy RAM: 50MB"]
+        R3["Auditor CPU: 15%"]
+        R4["Auditor RAM: 512MB"]
+    end
+    
+    style L1 fill:#4A90E2,stroke:#357ABD,stroke-width:3px,color:#fff
+    style L2 fill:#5BA3F5,stroke:#357ABD,stroke-width:3px,color:#fff
+    style L3 fill:#6CB6FF,stroke:#357ABD,stroke-width:3px,color:#fff
+    style L4 fill:#7DC9FF,stroke:#357ABD,stroke-width:3px,color:#fff
+    
+    style T1 fill:#7B68EE,stroke:#5A4BBD,stroke-width:3px,color:#fff
+    style T2 fill:#9B88FF,stroke:#5A4BBD,stroke-width:3px,color:#fff
+    style T3 fill:#BBA8FF,stroke:#5A4BBD,stroke-width:3px,color:#fff
+    
+    style R1 fill:#50C878,stroke:#3EA662,stroke-width:3px,color:#fff
+    style R2 fill:#6FD68F,stroke:#3EA662,stroke-width:3px,color:#fff
+    style R3 fill:#8FE4A6,stroke:#3EA662,stroke-width:3px,color:#fff
+    style R4 fill:#AFF2BD,stroke:#3EA662,stroke-width:3px,color:#fff
+```
 
-| Component | CPU (avg) | Memory (avg) | Disk I/O |
-|-----------|-----------|--------------|----------|
-| Proxy (WASM) | 2% per core | 50 MB | Minimal |
-| Auditor Service | 15% per core | 512 MB | 10 MB/s |
-| Trillian LogServer | 10% per core | 1 GB | 50 MB/s |
-| PostgreSQL | 20% per core | 4 GB | 100 MB/s |
-| Dashboard | 5% per core | 256 MB | Minimal |
+**Scalability Highlights:**
+- 📈 Linear scaling up to 32 auditor replicas
+- 🌍 <100ms global latency with regional deployments
+- 💾 1B receipts = ~500GB (compressed)
+- ⚡ Sub-2s query performance at scale
 
+</td>
+</tr>
+</table>
 ---
 
 ## Contributing
