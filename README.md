@@ -9,12 +9,12 @@
   <h3>Transform Black-Box AI into Legally Defensible, Auditable Artefacts</h3>
   
   **Core Capabilities:**
-  - 🌟 Cryptographically Signed Inference Receipts
-  - 🌟 Tamper-Evident Audit Trails with Merkle Tree Verification
-  - 🌟 Sub-5ms Overhead on Production LLM Serving
-  - 🌟 Healthcare & Finance-Ready Compliance (HIPAA, GDPR, EU AI Act)
-  - 🌟 Complete Model Lineage Tracking (Versions, Adapters, Hyperparameters)
-  - 🌟 Cloud-Agnostic Integration (AWS, Azure, GCP)
+  -  Cryptographically Signed Inference Receipts
+  -  Tamper-Evident Audit Trails with Merkle Tree Verification
+  -  Sub-5ms Overhead on Production LLM Serving
+  -  Healthcare & Finance-Ready Compliance (HIPAA, GDPR, EU AI Act)
+  -  Complete Model Lineage Tracking (Versions, Adapters, Hyperparameters)
+  -  Cloud-Agnostic Integration (AWS, Azure, GCP)
 </td>
 </tr>
 </table>
