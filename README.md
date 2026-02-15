@@ -586,7 +586,7 @@ verillm/
 | Hash Computation | Processing | 0.6ms |
 
 
-### Resource Utilization
+### Resource Utilisation & Performance
 
 | Component | CPU Usage | Data |
 |-----------|-----------|--------|
