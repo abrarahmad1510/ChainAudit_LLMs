@@ -625,15 +625,6 @@ Trillian         ██████░░░░  1 GB
 PostgreSQL       ██████████  4 GB
 ```
 
-### Scalability
-
-```
-Horizontal       ██████████  Linear to 32+ nodes
-Global Latency   ██████████  <100ms worldwide
-Storage          ██████████  500GB / 1B receipts
-Query Speed      ██████████  <2s at scale
-```
-
 </td>
 </tr>
 </table>
