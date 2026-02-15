@@ -1,4 +1,4 @@
-# Open Source Publication - Cryptographic Receipts for Verifiable AI Inference
+# Open Source Publication - Cryptographic Receipts for Verifiable A.I Inference
 
 <table>
 <tr>
