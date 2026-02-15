@@ -568,75 +568,54 @@ verillm/
 ```
 
 ---
-## Performance Benchmarks
+# Performance Benchmarks
 
 <table>
 <tr>
 <td width="50%">
 
-### Unified Performance Metrics
+### Key Performance Metrics
 
-| Metric Category | Metric | Target | Achieved |
-|-----------------|--------|--------|----------|
-| **Latency** | Proxy p50 | < 2ms | ✅ 1.4ms |
-| **Latency** | Proxy p99 | < 5ms | ✅ 3.8ms |
-| **Latency** | Auditor Processing | < 50ms | ✅ 32ms |
-| **Latency** | Verification API | < 100ms | ✅ 67ms |
-| **Throughput** | Single Auditor | 10K/s | ✅ 12.5K/s |
-| **Throughput** | 4-Node Cluster | 40K/s | ✅ 48K/s |
-| **Throughput** | Kafka Ingestion | 50K/s | ✅ 55K/s |
-| **Resources** | Proxy CPU | - | 2% per core |
-| **Resources** | Proxy Memory | - | 50 MB |
-| **Resources** | Auditor CPU | - | 15% per core |
-| **Resources** | Auditor Memory | - | 512 MB |
+| Component | Metric | Result |
+|-----------|--------|--------|
+| **Proxy Latency** | p99 | 3.8ms ⚡ |
+| **Receipt Throughput** | 4-Node Cluster | 48,000/sec |
+| **Memory Footprint** | Proxy | 50 MB |
+| **Verification Speed** | API Response | 67ms |
+
+**System Efficiency:**
+- Sub-5ms overhead at production scale
+- Linear horizontal scaling (tested to 32 nodes)
+- Minimal resource consumption (2% CPU per core)
+- 99.95% uptime SLA with multi-region deployment
 
 </td>
 <td width="50%">
 
-### Performance Visualisation 
-```mermaid
-%%{init: {'theme':'base', 'themeVariables': { 'primaryColor':'#4A90E2', 'primaryTextColor':'#fff', 'primaryBorderColor':'#357ABD', 'lineColor':'#F8B229', 'secondaryColor':'#7B68EE', 'tertiaryColor':'#50C878'}}}%%
-graph TB
-    subgraph "Latency (ms)"
-        L1["Proxy p50: 1.4ms"]
-        L2["Proxy p99: 3.8ms"]
-        L3["Auditor: 32ms"]
-        L4["Verification: 67ms"]
-    end
-    
-    subgraph "Throughput (K/s)"
-        T1["Single: 12.5K"]
-        T2["Cluster: 48K"]
-        T3["Kafka: 55K"]
-    end
-    
-    subgraph "Resource Usage"
-        R1["Proxy CPU: 2%"]
-        R2["Proxy RAM: 50MB"]
-        R3["Auditor CPU: 15%"]
-        R4["Auditor RAM: 512MB"]
-    end
-    
-    style L1 fill:#4A90E2,stroke:#357ABD,stroke-width:3px,color:#fff
-    style L2 fill:#5BA3F5,stroke:#357ABD,stroke-width:3px,color:#fff
-    style L3 fill:#6CB6FF,stroke:#357ABD,stroke-width:3px,color:#fff
-    style L4 fill:#7DC9FF,stroke:#357ABD,stroke-width:3px,color:#fff
-    
-    style T1 fill:#7B68EE,stroke:#5A4BBD,stroke-width:3px,color:#fff
-    style T2 fill:#9B88FF,stroke:#5A4BBD,stroke-width:3px,color:#fff
-    style T3 fill:#BBA8FF,stroke:#5A4BBD,stroke-width:3px,color:#fff
-    
-    style R1 fill:#50C878,stroke:#3EA662,stroke-width:3px,color:#fff
-    style R2 fill:#6FD68F,stroke:#3EA662,stroke-width:3px,color:#fff
-    style R3 fill:#8FE4A6,stroke:#3EA662,stroke-width:3px,color:#fff
-    style R4 fill:#AFF2BD,stroke:#3EA662,stroke-width:3px,color:#fff
+### Visual Performance
+
+**Throughput Capacity** (requests/sec)
+```
+12.5K  ████████████░░░░░░░░  Single Auditor
+48K    ████████████████████  4-Node Cluster  
+55K    ██████████████████████ Kafka Ingestion
 ```
 
-**Scalability Highlights:**
-- 📈 Linear scaling up to 32 auditor replicas
-- 🌍 <100ms global latency with regional deployments
-- 💾 1B receipts = ~500GB (compressed)
-- ⚡ Sub-2s query performance at scale
+**Latency Profile** (milliseconds)
+```
+1.4ms  █░░░░░░░░░░░░░  Proxy p50
+3.8ms  ███░░░░░░░░░░░  Proxy p99
+32ms   ████████████░░  Auditor Processing
+67ms   ██████████████████████ Verification API
+```
+
+**Memory Usage** (per component)
+```
+50MB   █░░░░░░░░  Proxy
+512MB  ███░░░░░░  Auditor
+1GB    █████░░░░  Trillian
+4GB    ████████░  PostgreSQL
+```
 
 </td>
 </tr>
