@@ -602,36 +602,36 @@ verillm/
 ### Throughput Performance
 
 ```
-Single Node        ████████████░░░░░░░░  12.5K req/s
-4-Node Cluster     ████████████████████  48K req/s  
-Kafka Pipeline     ██████████████████░░  55K msg/s
+Single Node        ████████░░░░  12.5K req/s
+4-Node Cluster     ████████████  48K req/s  
+Kafka Pipeline     █████████░░░  55K msg/s
 ```
 
 ### Latency Distribution
 
 ```
-Proxy p50          █░░░░░░░░░░░░░░░░░░░  1.4ms
-Proxy p99          ███░░░░░░░░░░░░░░░░░  3.8ms
-Auditor            ████████░░░░░░░░░░░░  32ms
-Verification       █████████████░░░░░░░  67ms
+Proxy p50          █░░░░░░░░░░░  1.4ms
+Proxy p99          ██░░░░░░░░░░  3.8ms
+Auditor            ████░░░░░░░░  32ms
+Verification       ██████░░░░░░  67ms
 ```
 
 ### Memory Footprint
 
 ```
-Proxy              █░░░░░░░░░░░░░░░░░░░  50 MB
-Auditor            █████░░░░░░░░░░░░░░░  512 MB
-Trillian           ██████████░░░░░░░░░░  1 GB
-PostgreSQL         ████████████████████  4 GB
+Proxy              █░░░░░░░░░░░  50 MB
+Auditor            ████░░░░░░░░  512 MB
+Trillian           ██████░░░░░░  1 GB
+PostgreSQL         ████████████  4 GB
 ```
 
-### Scalability Characteristics
+### Scalability
 
 ```
-Horizontal Scaling    ████████████████████  Linear to 32+ nodes
-Global Latency        ████████████████████  <100ms worldwide
-Storage Efficiency    ████████████████████  500GB / 1B receipts
-Query Performance     ████████████████████  <2s at scale
+Horizontal Scaling    ████████████  Linear to 32+ nodes
+Global Latency        ████████████  <100ms worldwide
+Storage Efficiency    ████████████  500GB / 1B receipts
+Query Performance     ████████████  <2s at scale
 ```
 
 </td>
