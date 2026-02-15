@@ -622,7 +622,7 @@ cd dashboard && npm test && cd ..
 
 ## Use Cases
 
-### Healthcare AI Systems
+### 🏥 Healthcare AI Systems
 
 **Challenge**: Hospital deploys AI-assisted radiology tool; FDA requires complete audit trail of which model version analyzed each scan.
 
@@ -632,7 +632,7 @@ cd dashboard && npm test && cd ..
 
 ---
 
-### Financial Services
+### 💷 Financial Services
 
 **Challenge**: Bank's credit scoring model must prove to regulators that denied applications used approved model version and comply with fair lending laws.
 
@@ -642,7 +642,7 @@ cd dashboard && npm test && cd ..
 
 ---
 
-### Legal AI Assistants
+### 🗂️ Legal AI Assistants
 
 **Challenge**: Law firm uses LLM for contract review; needs to prove which model version generated each legal opinion for malpractice insurance.
 
