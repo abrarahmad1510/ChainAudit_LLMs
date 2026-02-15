@@ -219,7 +219,7 @@ Real-time audit interface with receipt explorer, model lineage visualizer, priva
 ### Key Technical Specifications
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/abrarahmad1510/ChainAudit_LLMs/main/technical_specifications.png" alt="Technical Architecture" width="100%">
+  <img src="https://raw.githubusercontent.com/abrarahmad1510/ChainAudit_LLMs/main/technical_specifications.png" alt="Technical Architecture" width="75%">
 </p>
 
 
